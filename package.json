@@ -1,0 +1,39 @@
+{
+  "name": "grunt-svg-sprite",
+  "version": "0.0.1",
+  "description": "Creates an SVG CSS/Sass sprite of a folder of SVG files",
+  "homepage": "https://github.com/jkphl/grunt-svg-sprite",
+  "repository": "https://github.com/jkphl/grunt-svg-sprite.git",
+  "bugs": "https://github.com/jkphl/grunt-svg-sprite.gitissues",
+  "author": {
+    "name": "Joschi Kuphal",
+    "email": "joschi@kuphal.net",
+    "url": "http://jkphl.is"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "svg-sprite": "~0.0.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-jshint": "~0.2.0",
+    "grunt-contrib-nodeunit": "~0.1.2",
+    "grunt": "~0.4.0rc2",
+    "jshint-stylish": "~0.1.3",
+    "load-grunt-tasks": "~0.2.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
