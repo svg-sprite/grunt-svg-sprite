@@ -2,17 +2,18 @@
  * grunt-svg-sprite
  * https://github.com/jkphl/grunt-svg-sprite
  *
- * Copyright (c) 2014 Joschi Kuphal
+ * Copyright (c) 2014 Joschi Kuphal <joschi@kuphal.net>
  * Licensed under the MIT license.
  */
 
 'use strict';
 
 module.exports = function (grunt) {
-  // load all npm grunt tasks
+	
+  // Load all npm grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  // Project configuration.
+  // Project configuration
   grunt.initConfig({
     jshint: {
       all: [
@@ -33,20 +34,24 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     svgsprite: {
-      default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+      spriteCSS: {
+        spriteCSS: {
+          src: ['test/files'],
+          dest: 'tmp/css'
         }
       },
-      custom_options: {
+      spriteSass: {
+        src: ['test/files'],
+        dest: 'tmp/css',
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          css: false,
+          sass: '_sprite',
+          sassout: 'tmp/sass',
+          maxwidth: 50,
+          maxheight: 50,
+          padding: 10,
+          keep: true,
+          dims: true
         }
       }
     },
