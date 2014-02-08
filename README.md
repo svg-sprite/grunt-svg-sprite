@@ -94,9 +94,9 @@ In this example, custom options are used to disable CSS output and create Sass r
 ```javascript
 grunt.initConfig({
   svgsprite: {
-    spriteCSS: {
+    spriteSass: {
       src: ['path/to/svg/dir'],
-      dest: 'path/to/css/dir'
+      dest: 'path/to/css/dir',
       options: {
         css: false,
         sass: '_sprite',
