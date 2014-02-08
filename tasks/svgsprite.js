@@ -1,7 +1,7 @@
 /*
  * grunt-svg-sprite https://github.com/jkphl/grunt-svg-sprite
  * 
- * Copyright (c) 2014 Joschi Kuphal Licensed under the MIT license.
+ * Copyright (c) 2014 Joschi Kuphal <joschi@kuphal.net> Licensed under the MIT license.
  */
 
 'use strict';

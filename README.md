@@ -1,30 +1,30 @@
 # grunt-svg-sprite
 
-> Creates an SVG CSS/Sass sprite of a folder of SVG files
+> Creates an SVG sprite plus suitable CSS / Sass resources of a folder of SVG files. It is a Grunt wrapper for the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
 
 ## Getting Started
 This plugin requires Grunt.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```shell
+```bash
 npm install grunt-svg-sprite --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
-```js
+```javascript
 grunt.loadNpmTasks('grunt-svg-sprite');
 ```
 
-## The "svg-sprite" task
+## The "svgsprite" task
 
 ### Overview
-In your project's Gruntfile, add a section named `svg-sprite` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `svgsprite` to the data object passed into `grunt.initConfig()`.
 
-```js
+```javascript
 grunt.initConfig({
-  svg-sprite: {
+  svgsprite: {
     options: {
       // Task-specific options go here.
     },
@@ -35,58 +35,89 @@ grunt.initConfig({
 })
 ```
 
+Of course, the top level `options` object is optional and you may define as many targets as you want. Your targets should look like this:
+
+```javascript
+your_target: {
+  src: ['path/to/svg/dir'],
+  dest: 'path/to/css/dir'
+}
+```
+
+As [svg-sprite](https://npmjs.org/package/svg-sprite) accepts exactly one input directory, only the first element of the `src` resource list will be used. Alternatively, you may simply provide a single string as `src` argument: 
+
+```javascript
+your_target: {
+  src: 'path/to/svg/dir',
+  dest: 'path/to/css/dir'
+}
+```
+
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+You may provide both task and target specific `options`:
 
-A string value that is used to do something with whatever.
+```javascript
+your_target: {
+  src: 'path/to/svg/dir',
+  dest: 'path/to/css/dir',
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+  // Target specific options  
+  options: {
+    sass: '_sprite',
+    sassout: 'path/to/sass/dir'
+  }
+}
+```
 
-A string value that is used to do something else with whatever else.
+The options are passed to [svg-sprite](https://npmjs.org/package/svg-sprite) as configuration values. A complete reference is [available here](https://github.com/jkphl/svg-sprite#available-options).
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Basic example
+In this very basic example, the default options are used to create an SVG sprite along with a suitable CSS file (the `css` option is set to `TRUE` by default):
 
-```js
+```javascript
 grunt.initConfig({
-  svg-sprite: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+  svgsprite: {
+    spriteCSS: {
+      src: ['path/to/svg/dir'],
+      dest: 'path/to/css/dir'
+    }
+  }
 })
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Sass example
+In this example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
 
-```js
+```javascript
 grunt.initConfig({
-  svg-sprite: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+  svgsprite: {
+    spriteCSS: {
+      src: ['path/to/svg/dir'],
+      dest: 'path/to/css/dir'
+      options: {
+        css: false,
+        sass: '_sprite',
+        sassout: 'path/to/sass/dir',
+        maxwidth: 50,
+        maxheight: 50,
+        padding: 10,
+        keep: true,
+        dims: true
+      }
+    }
+  }
 })
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-## Release History
-_(Nothing yet)_
+##Legal
+Copyright © 2014 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl)
 
-## License
-Copyright (c) 2014 Joschi Kuphal. Licensed under the MIT license.
+*svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
+
+The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
