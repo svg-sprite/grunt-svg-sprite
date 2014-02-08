@@ -1,7 +1,7 @@
 {
   "name": "grunt-svg-sprite",
   "version": "0.0.1",
-  "description": "Creates an SVG CSS/Sass sprite of a folder of SVG files",
+  "description": "Creates an SVG sprite plus suitable CSS / Sass resources of a folder of SVG files",
   "homepage": "https://github.com/jkphl/grunt-svg-sprite",
   "repository": "https://github.com/jkphl/grunt-svg-sprite.git",
   "bugs": "https://github.com/jkphl/grunt-svg-sprite.gitissues",
@@ -11,7 +11,12 @@
     "url": "http://jkphl.is"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "svg",
+    "sprite",
+    "generator",
+    "css",
+    "sass"
   ],
   "main": "Gruntfile.js",
   "engines": {
