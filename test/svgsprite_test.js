@@ -1,6 +1,8 @@
 'use strict';
 
-var grunt = require('grunt');
+var grunt			= require('grunt'),
+svg2png				= require('svg2png'),
+imageDiff			= require('image-diff');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -22,27 +24,46 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.svg-sprite = {
+exports.svgsprite = {
   setUp: function (done) {
     // setup here if necessary
     done();
   },
-  default_options: function (test) {
+  spriteCSS: function (test) {
     test.expect(1);
-
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
-
+    var actual		= grunt.file.read('tmp/css/sprite.css'),
+    expected		= grunt.file.read('test/expected/spriteCSS.css');
+    test.equal(actual, expected, 'should be the default CSS output.');
     test.done();
   },
-  custom_options: function (test) {
+  spriteSass: function (test) {
     test.expect(1);
-
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
-
+    var actual		= grunt.file.read('tmp/sass/_sprite.scss'),
+    expected		= grunt.file.read('test/expected/spriteSass.scss');
+    test.equal(actual, expected, 'should be the default Sass output.');
     test.done();
+  },
+  spritePng: function(test) {
+    test.expect(5);
+    svg2png('tmp/css/svg/sprite.svg', 'tmp/css/svg/sprite.png', function(error) {
+      test.ifError(error);
+      imageDiff({
+        actualImage: 'tmp/css/svg/sprite.png',
+        expectedImage: 'tmp/css/svg/sprite.png',
+        diffImage: 'tmp/css/svg/sprite.diff.png'
+      }, function (error, imagesAreSame) {
+        test.ifError(error);
+        test.ok(imagesAreSame, 'should report no differences between the actual and the expected sprite');
+        imageDiff({
+          actualImage: 'tmp/css/svg/sprite.png',
+          expectedImage: 'tmp/css/svg/sprite.dot.png',
+          diffImage: 'tmp/css/svg/sprite.dot.diff.png'
+        }, function (error, imagesAreSame) {
+          test.ifError(error);
+          test.ok(!imagesAreSame, 'should report some differences between the actual and the expected sprite');
+          test.done();
+        });
+      });
+    });
   }
 };

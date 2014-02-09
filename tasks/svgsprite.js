@@ -8,7 +8,8 @@
 
 module.exports = function(grunt) {
 	var SVGSprite			= require('svg-sprite'),
-	util					= require('util');
+	util					= require('util'),
+	chalk					= require('chalk');
 	
 	grunt.registerMultiTask('svgsprite', 'Creates an SVG sprite plus suitable CSS / Sass resources of a folder of SVG files', function() {
 		var options			= this.options(),
@@ -25,9 +26,8 @@ module.exports = function(grunt) {
 				if (error) {
 					console.error(error);
 				} else {
-					console.log('SUCCESS - %s files have been writen to disk:', results.length);
 					for (var file in results.files) {
-						console.log('+++ %s (%s bytes)', file, results.files[file]);
+						grunt.log.writeln(chalk.green('✔ ') + file + chalk.gray(' (' + results.files[file] + ' bytes)'));
 					}
 				}
 				done();

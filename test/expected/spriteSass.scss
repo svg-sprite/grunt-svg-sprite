@@ -1,0 +1,93 @@
+%svg {
+	background-image:url(svg/sprite.svg);
+	background-repeat:no-repeat
+}
+.svg-weather-clear-night,
+.svg-weather-clear-night\:regular {
+	@extend %svg;
+	background-position: 0 0;
+}
+.svg-weather-clear-night-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-clear,
+.svg-weather-clear\:regular {
+	background-position: 0 -48px;
+}
+.svg-weather-clear-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-few-clouds-night,
+.svg-weather-few-clouds-night\:regular {
+	background-position: 0 -96px;
+}
+.svg-weather-few-clouds-night-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-few-clouds,
+.svg-weather-few-clouds\:regular {
+	background-position: 0 -144px;
+}
+.svg-weather-few-clouds-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-overcast,
+.svg-weather-overcast\:regular {
+	background-position: 0 -192px;
+}
+.svg-weather-overcast-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-severe-alert,
+.svg-weather-severe-alert\:regular {
+	background-position: 0 -240px;
+}
+.svg-weather-severe-alert-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-showers-scattered,
+.svg-weather-showers-scattered\:regular {
+	background-position: 0 -288px;
+}
+.svg-weather-showers-scattered-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-showers,
+.svg-weather-showers\:regular {
+	background-position: 0 -336px;
+}
+.svg-weather-showers-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-snow,
+.svg-weather-snow\:regular {
+	background-position: 0 -384px;
+}
+.svg-weather-snow-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-storm,
+.svg-weather-storm\:regular {
+	background-position: 0 -432px;
+}
+.svg-weather-storm-dims {
+	width: 48px;
+	height: 48px;
+}
+.svg-weather-storm:hover,
+.svg-weather-storm\:hover {
+	background-position: 0 -480px;
+}
+.svg-weather-storm-dims:hover,.svg-weather-storm\:hover-dims {
+	width: 44.00032px;
+	height: 48.999882px;
+}

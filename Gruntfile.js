@@ -35,10 +35,8 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     svgsprite: {
       spriteCSS: {
-        spriteCSS: {
-          src: ['test/files'],
-          dest: 'tmp/css'
-        }
+        src: ['test/files'],
+        dest: 'tmp/css'
       },
       spriteSass: {
         src: ['test/files'],
