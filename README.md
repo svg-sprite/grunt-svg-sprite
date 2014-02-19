@@ -118,8 +118,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.0.4
+*	Updated dependency to bugfixed svg-sprite ([#3](https://github.com/jkphl/grunt-svg-sprite/issues/3))
+
 #### v0.0.3
-*	Updated dependency to bugfixed svg-sprite
+*	Updated dependency to bugfixed svg-sprite ([#2](https://github.com/jkphl/grunt-svg-sprite/issues/2))
 
 #### v0.0.2
 *	Changed devDependencies
