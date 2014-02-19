@@ -118,8 +118,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.0.3
+*	Updated dependency to bugfixed svg-sprite
+
 #### v0.0.2
-*	Changed devDependencies & added more tests
+*	Changed devDependencies
 
 #### v0.0.1
 *	Initial release
