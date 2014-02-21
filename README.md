@@ -118,6 +118,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.0.5
+*	Added support for LESS output ([#6](https://github.com/jkphl/grunt-svg-sprite/issues/6))
+
 #### v0.0.4
 *	Updated dependency to bugfixed svg-sprite ([#3](https://github.com/jkphl/grunt-svg-sprite/issues/3))
 
