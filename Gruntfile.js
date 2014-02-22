@@ -38,13 +38,29 @@ module.exports = function (grunt) {
         src: ['test/files'],
         dest: 'tmp/css'
       },
-      spriteSass: {
+      spriteScss: {
         src: ['test/files'],
         dest: 'tmp/css',
         options: {
-          css: false,
-          sass: '_sprite',
-          sassout: 'tmp/sass',
+          render: {
+            css: false,
+            scss: '../scss/_sprite'
+          },
+          maxwidth: 50,
+          maxheight: 50,
+          padding: 10,
+          keep: true,
+          dims: true
+        }
+      },
+      spriteLess: {
+        src: ['test/files'],
+        dest: 'tmp/css',
+        options: {
+          render: {
+            css: false,
+            less: '../less/_sprite'
+          },
           maxwidth: 50,
           maxheight: 50,
           padding: 10,
@@ -58,7 +74,6 @@ module.exports = function (grunt) {
     nodeunit: {
       tests: ['test/*_test.js']
     }
-
   });
 
   // Actually load this plugin's task(s).

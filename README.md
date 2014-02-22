@@ -1,6 +1,6 @@
 # grunt-svg-sprite
 
-> Creates an SVG sprite plus suitable CSS / Sass resources of a folder of SVG files. It is a Grunt wrapper for the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
+> Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS etc. resources out of them. It is a Grunt wrapper for the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
 
 ## Getting Started
 This plugin requires Grunt.
@@ -39,8 +39,8 @@ Of course, the top level `options` object is optional and you may define as many
 
 ```javascript
 your_target: {
-  src: ['path/to/svg/dir'],
-  dest: 'path/to/css/dir'
+  src      : ['path/to/svg/dir'],
+  dest     : 'path/to/css/dir'
 }
 ```
 
@@ -48,8 +48,8 @@ As [svg-sprite](https://npmjs.org/package/svg-sprite) accepts exactly one input 
 
 ```javascript
 your_target: {
-  src: 'path/to/svg/dir',
-  dest: 'path/to/css/dir'
+  src      : 'path/to/svg/dir',
+  dest     : 'path/to/css/dir'
 }
 ```
 
@@ -59,13 +59,13 @@ You may provide both task and target specific `options`:
 
 ```javascript
 your_target: {
-  src: 'path/to/svg/dir',
-  dest: 'path/to/css/dir',
+  src      : 'path/to/svg/dir',
+  dest     : 'path/to/css/dir',
 
   // Target specific options  
-  options: {
-    sass: '_sprite',
-    sassout: 'path/to/sass/dir'
+  options  : {
+    dims   : true,
+    keep   : true
   }
 }
 ```
@@ -75,7 +75,7 @@ The options are passed to [svg-sprite](https://npmjs.org/package/svg-sprite) as 
 ### Usage Examples
 
 #### Basic example
-In this very basic example, the default options are used to create an SVG sprite along with a suitable CSS file (the `css` option is set to `TRUE` by default):
+In this very basic example, the default options are used to create an SVG sprite along with a suitable CSS file (the `render.css` option defaults to `TRUE`):
 
 ```javascript
 grunt.initConfig({
@@ -89,23 +89,26 @@ grunt.initConfig({
 ```
 
 #### Sass example
-In this example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
+In this (a little more verbose) example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
 
 ```javascript
 grunt.initConfig({
-  svgsprite: {
-    spriteSass: {
-      src: ['path/to/svg/dir'],
-      dest: 'path/to/css/dir',
-      options: {
-        css: false,
-        sass: '_sprite',
-        sassout: 'path/to/sass/dir',
-        maxwidth: 50,
-        maxheight: 50,
-        padding: 10,
-        keep: true,
-        dims: true
+  svgsprite       : {
+    spriteSass    : {
+      src         : ['path/to/svg/dir'],
+      dest        : 'path/to/css/dir',
+      options     : {
+        render    : {
+          css     : false,
+          sass    : {
+            dest  : 'path/to/sass/dir/_sprite',
+          }
+        },
+        maxwidth  : 50,
+        maxheight : 50,
+        padding   : 10,
+        keep      : true,
+        dims      : true
       }
     }
   }
@@ -117,6 +120,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 Release history
 ---------------
+
+#### v0.1.0
+*	Added support for omitting the sprite subdirectory ([svg-sprite issue #5](https://github.com/jkphl/svg-sprite/issues/5))
+*	Added support for Mustache template based rendering ([svg-sprite issue #6](https://github.com/jkphl/svg-sprite/issues/6))
+*	**Breaking change**: Dropped `css`, `sass`, `sassout`, `less` and `lessout` configuration options and added `render` instead (see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#rendering-configuration) for a description of the available options)
 
 #### v0.0.5
 *	Added support for LESS output ([#6](https://github.com/jkphl/grunt-svg-sprite/issues/6))
