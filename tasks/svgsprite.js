@@ -16,13 +16,13 @@ module.exports = function(grunt) {
 		that				= this;
 		
 		this.files.forEach(function(file) {
-			var inputDir	= file.src.shift() || './',
+			var indir		= file.src.shift() || './',
 			outdir			= util.isArray(file.dest) ? file.dest.shift() : ('' + file.dest),
 			done			= that.async();
 			
-			console.log('Building SVG sprite from directory "%s" ...', inputDir);
+			console.log('Building SVG sprite from directory "%s" ...', indir);
 			
-			SVGSprite.createSprite(inputDir, outdir, that.options(), function(error, results) {
+			SVGSprite.createSprite(indir, outdir, options, function(error, results) {
 				if (error) {
 					console.error(error);
 				} else {

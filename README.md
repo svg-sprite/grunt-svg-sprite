@@ -121,6 +121,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.1.2
+*	Compatibility release
+
 #### v0.1.0
 *	Added support for omitting the sprite subdirectory ([svg-sprite issue #5](https://github.com/jkphl/svg-sprite/issues/5))
 *	Added support for Mustache template based rendering ([svg-sprite issue #6](https://github.com/jkphl/svg-sprite/issues/6))
