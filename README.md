@@ -121,6 +121,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.1.3
+*	Compatibility release
+
 #### v0.1.2
 *	Compatibility release
 
