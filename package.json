@@ -1,6 +1,6 @@
 {
   "name": "grunt-svg-sprite",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS etc. resources out of them",
   "homepage": "https://github.com/jkphl/grunt-svg-sprite",
   "repository": "https://github.com/jkphl/grunt-svg-sprite.git",
@@ -28,7 +28,7 @@
     }
   ],
   "dependencies": {
-    "svg-sprite": "~0.1.4",
+    "svg-sprite": "~0.1.5",
     "chalk": "0.3.x"
   },
   "devDependencies": {
