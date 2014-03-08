@@ -205,6 +205,6 @@ Release history
 ##Legal
 Copyright © 2014 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl)
 
-*svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
+*grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
 
 The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.

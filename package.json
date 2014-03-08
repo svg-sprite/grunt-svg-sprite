@@ -50,7 +50,6 @@
     "svg2png": ">= 1.0.1",
     "image-diff": ">= 0.3.0"
   },
-  ,
   "peerDependencies": {
     "grunt": "~0.4.2"
   },
