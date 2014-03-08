@@ -1,6 +1,6 @@
 # grunt-svg-sprite
 
-> Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS etc. resources out of them. It is a Grunt wrapper for the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
+Takes a folder of SVG images and creates an SVG sprite along with suitable stylesheet resources (e.g. CSS, Sass or LESS) out of them. It is a Grunt plugin that wraps around the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
 
 ## Getting Started
 This plugin requires Grunt.
@@ -39,17 +39,17 @@ Of course, the top level `options` object is optional and you may define as many
 
 ```javascript
 your_target: {
-  src      : ['path/to/svg/dir'],
-  dest     : 'path/to/css/dir'
+  src      : ['path/to/svg/image/dir'],
+  dest     : 'path/to/main/output/dir'
 }
 ```
 
-As [svg-sprite](https://npmjs.org/package/svg-sprite) accepts exactly one input directory, only the first element of the `src` resource list will be used. Alternatively, you may simply provide a single string as `src` argument: 
+As [svg-sprite](https://github.com/jkphl/svg-sprite) accepts exactly **one input directory** for each run, only the first element of the `src` resource list will be used. That said, you may also provide a simple string as `src` argument: 
 
 ```javascript
 your_target: {
-  src      : 'path/to/svg/dir',
-  dest     : 'path/to/css/dir'
+  src      : 'path/to/svg/image/dir',
+  dest     : 'path/to/main/output/dir'
 }
 ```
 
@@ -70,7 +70,24 @@ your_target: {
 }
 ```
 
-The options are passed to [svg-sprite](https://npmjs.org/package/svg-sprite) as configuration values. A complete reference is [available here](https://github.com/jkphl/svg-sprite#available-options).
+The options are passed to [svg-sprite](https://github.com/jkphl/svg-sprite) as configuration values. A complete reference is [available here](https://github.com/jkphl/svg-sprite#available-options).
+
+|Option       |Description  |
+|:------------|:------------|
+|render       |Default output directory for stylesheets and the sprite subdirectory|
+|spritedir    |Sprite subdirectory name [`"svg"`]|
+|sprite       |Sprite file name [`"sprite"`]|
+|prefix       |CSS selector prefix [`"svg"`]|
+|common       |Common CSS selector for all images [*empty*]|
+|maxwidth     |Maximum single image width [`1000`]|
+|maxheight    |Maximum single image height [`1000`]|
+|padding      |Transparent padding around the single images (in pixel) [`0`]|
+|pseudo       |Character sequence for denoting CSS pseudo classes [`"~"`]|
+|dims         |Render image dimensions as separate CSS rules [`false`]|
+|keep         |Keep intermediate SVG files (inside the sprite subdirectory) [`false`]|
+|verbose      | Output verbose progress information (0-3) [`0`]|
+|cleanwith    |Module to be used for SVG cleaning. Currently "scour" or "svgo" [`"svgo"`]|
+|cleanconfig  |Configuration options for the cleaning module [`{}`]|
 
 ### Usage Examples
 
@@ -88,8 +105,16 @@ grunt.initConfig({
 })
 ```
 
+These files are created at `path/to/css/dir`:
+
+```bash
+|-- sprite.css
+`-- svg
+    `-- sprite.svg
+```
+
 #### Sass example
-In this (a little more verbose) example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
+In this slightly more verbose example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
 
 ```javascript
 grunt.initConfig({
@@ -100,8 +125,8 @@ grunt.initConfig({
       options     : {
         render    : {
           css     : false,
-          sass    : {
-            dest  : 'path/to/sass/dir/_sprite',
+          scss    : {
+            dest  : 'sass/_sprite'
           }
         },
         maxwidth  : 50,
@@ -115,6 +140,26 @@ grunt.initConfig({
 })
 ```
 
+These files are created at `path/to/css/dir` (when run with the example SVG images coming with *grunt-svg-sprite*):
+
+```bash
+|-- sass
+|   `-- _sprite.scss
+`-- svg
+    |-- sprite.svg
+    |-- weather-clear-night.svg
+    |-- weather-clear.svg
+    |-- weather-few-clouds-night.svg
+    |-- weather-few-clouds.svg
+    |-- weather-overcast.svg
+    |-- weather-severe-alert.svg
+    |-- weather-showers-scattered.svg
+    |-- weather-showers.svg
+    |-- weather-snow.svg
+    |-- weather-storm.svg
+    `-- weather-storm~hover.svg
+```
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
@@ -123,6 +168,7 @@ Release history
 
 #### v0.2.0
 *	Compatibility release
+*	Fixed tests after fixing the [padding bug in svg-sprite](https://github.com/jkphl/svg-sprite/pull/10)
 
 #### v0.1.5
 *	Compatibility release

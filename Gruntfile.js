@@ -33,7 +33,7 @@ module.exports = function (grunt) {
     },
 
     // Configuration to be run (and then tested).
-    svgsprite: {
+    svgsprite: {/*
       spriteCSS: {
         src: ['test/files'],
         dest: 'tmp/css'
@@ -67,7 +67,24 @@ module.exports = function (grunt) {
           keep: true,
           dims: true
         }
+      }*/
+    	spriteSass    : {
+      src: ['test/files'],
+        dest: 'tmp/css',
+      options     : {
+        render    : {
+          css     : false,
+          scss    : {
+            dest  : 'sass/_sprite'
+          }
+        },
+        maxwidth  : 50,
+        maxheight : 50,
+        padding   : 10,
+        keep      : true,
+        dims      : true
       }
+    }
     },
 
     // Unit tests.
