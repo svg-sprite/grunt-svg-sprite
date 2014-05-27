@@ -166,6 +166,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.2.3
+*	Fixed bug with SVGO plugin configuration (#13)
+
 #### v0.2.0
 *	Compatibility release
 *	Fixed tests after fixing the [padding bug in svg-sprite](https://github.com/jkphl/svg-sprite/pull/10)
