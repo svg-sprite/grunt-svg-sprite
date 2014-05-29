@@ -1,12 +1,12 @@
 {
   "name": "grunt-svg-sprite",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Joschi Kuphal",
     "email": "joschi@kuphal.net",
     "url": "http://jkphl.is"
   },
-  "description": "Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS etc. resources out of them",
+  "description": "Takes a folder of SVG images and creates an SVG sprite along with suitable stylesheet resources (e.g. CSS, Sass or LESS) out of them",
   "homepage": "https://github.com/jkphl/grunt-svg-sprite",
   "repository": {
     "type": "git",
@@ -26,7 +26,7 @@
     "node": ">= 0.8.0"
   },
   "dependencies": {
-    "svg-sprite": "~0.2.0",
+    "svg-sprite": "~0.3.0",
     "chalk": "0.3.x"
   },
   "devDependencies": {

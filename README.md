@@ -74,7 +74,7 @@ The options are passed to [svg-sprite](https://github.com/jkphl/svg-sprite) as c
 
 |Option       |Description  |
 |:------------|:------------|
-|render       |Default output directory for stylesheets and the sprite subdirectory|
+|render       |Rendering configuration ([details see here](https://github.com/jkphl/svg-sprite#rendering-configuration))|
 |spritedir    |Sprite subdirectory name [`"svg"`]|
 |sprite       |Sprite file name [`"sprite"`]|
 |prefix       |CSS selector prefix [`"svg"`]|
@@ -82,9 +82,11 @@ The options are passed to [svg-sprite](https://github.com/jkphl/svg-sprite) as c
 |maxwidth     |Maximum single image width [`1000`]|
 |maxheight    |Maximum single image height [`1000`]|
 |padding      |Transparent padding around the single images (in pixel) [`0`]|
+|layout       |Image arrangement within the sprite (`"vertical"`, `"horizontal"` or `"diagonal"`) [`"vertical"`]|
 |pseudo       |Character sequence for denoting CSS pseudo classes [`"~"`]|
 |dims         |Render image dimensions as separate CSS rules [`false`]|
 |keep         |Keep intermediate SVG files (inside the sprite subdirectory) [`false`]|
+|recursive    |Recursive scan of the input directory for SVG files [`false`]|
 |verbose      | Output verbose progress information (0-3) [`0`]|
 |cleanwith    |Module to be used for SVG cleaning. Currently "scour" or "svgo" [`"svgo"`]|
 |cleanconfig  |Configuration options for the cleaning module [`{}`]|
@@ -166,8 +168,12 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
-#### v0.2.3
-*	Fixed bug with SVGO plugin configuration (#13)
+#### v0.3.0
+*	[Compatibility release](https://github.com/jkphl/svg-sprite#v030)
+*	Fixed bug with SVGO plugin configuration ([#13](https://github.com/jkphl/grunt-svg-sprite/issues/13))
+*	Added new HTML output format for rendering an inline SVG HTML implementation ([#12](https://github.com/jkphl/grunt-svg-sprite/issues/12))
+*	Added new SVG output format for rendering an inline SVG sprite ([#12](https://github.com/jkphl/grunt-svg-sprite/issues/12))
+*	Documentation corrections
 
 #### v0.2.0
 *	Compatibility release
