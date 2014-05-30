@@ -74,7 +74,7 @@ The options are passed to [svg-sprite](https://github.com/jkphl/svg-sprite) as c
 
 |Option       |Description  |
 |:------------|:------------|
-|render       |Rendering configuration ([details see here](https://github.com/jkphl/svg-sprite#rendering-configuration))|
+|render       |Rendering configuration (output formats like CSS, Sass, LESS, HTML with inline SVG, etc.; [details see here](https://github.com/jkphl/svg-sprite#rendering-configuration))|
 |spritedir    |Sprite subdirectory name [`"svg"`]|
 |sprite       |Sprite file name [`"sprite"`]|
 |prefix       |CSS selector prefix [`"svg"`]|
@@ -162,11 +162,21 @@ These files are created at `path/to/css/dir` (when run with the example SVG imag
     `-- weather-storm~hover.svg
 ```
 
+#### Custom output formats & inline SVG embedding
+
+The output rendering of *grunt-svg-sprite* is based on [Mustache](http://mustache.github.io) templates, which enables **full customization of the generated results**. You can even introduce completely new output formats. For details please see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#custom-output-formats).
+
+Also, you may use *grunt-svg-sprite* to create an **inline SVG sprite** that can be embedded directly into your HTML documents. Please see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#inline-embedding) for details.
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 Release history
 ---------------
+
+#### v0.3.1
+*	[Compatibility release](https://github.com/jkphl/svg-sprite#v031)
+*	Documentation corrections
 
 #### v0.3.0
 *	[Compatibility release](https://github.com/jkphl/svg-sprite#v030)
