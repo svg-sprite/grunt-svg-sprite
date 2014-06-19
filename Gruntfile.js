@@ -67,6 +67,21 @@ module.exports = function (grunt) {
           keep: true,
           dims: true
         }
+      },
+      spriteStyl: {
+        src: ['test/files'],
+        dest: 'tmp/css',
+        options: {
+          render: {
+            css: false,
+            styl: '../styl/_sprite'
+          },
+          maxwidth: 50,
+          maxheight: 50,
+          padding: 10,
+          keep: true,
+          dims: true
+        }
       }
     },
 

@@ -54,6 +54,14 @@ exports.svgsprite = {
     test.done();
   },
   
+  spriteStyl: function (test) {
+    test.expect(1);
+    var actual		= grunt.file.read('tmp/styl/_sprite.styl'),
+    expected		= grunt.file.read('test/expected/sprite.styl');
+    test.equal(actual, expected, 'should be the default Stylus output.');
+    test.done();
+  },
+  
   spritePng: function(test) {
     test.expect(4);
     svg2png('tmp/css/svg/sprite.svg', 'tmp/css/svg/sprite.png', function(error) {

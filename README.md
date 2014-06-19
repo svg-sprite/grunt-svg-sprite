@@ -174,6 +174,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v0.3.2
+*	[Compatibility release](https://github.com/jkphl/svg-sprite#v032)
+*	Added a Stylus output template
+
 #### v0.3.1
 *	[Compatibility release](https://github.com/jkphl/svg-sprite#v031)
 *	Documentation corrections
