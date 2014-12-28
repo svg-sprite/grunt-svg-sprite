@@ -1,233 +1,246 @@
-# grunt-svg-sprite
+# grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
 
-Takes a folder of SVG images and creates an SVG sprite along with suitable stylesheet resources (e.g. CSS, Sass or LESS) out of them. It is a Grunt plugin that wraps around the [svg-sprite](https://npmjs.org/package/svg-sprite) Node.js module.
+is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **reads in a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and creates **SVG sprites** in various flavours:
+
+1. Traditional **CSS sprites** for use with background images ([configuration](#d-1-css-mode))
+2. CSS sprites with **pre-defined SVG views**, suitable for foreground images as well ([configuration](#d-2-view-mode))
+3. Inline sprites using the **`<defs>` element** ([configuration](#d-3-defs-mode))
+4. Inline sprites using the **`<symbol>` element** ([configuration](#d-4-symbol-mode))
+5. **SVG stacks** ([configuration](#d-5-stack-mode))
+
+## Features & configuration? → [svg-sprite](https://github.com/jkphl/svg-sprite)
+
+This manual covers only Grunt specific installation and configuration aspects. For a full list of features and options, please see the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
 
 ## Getting Started
-This plugin requires Grunt.
+
+This plugin requires Grunt `~0.4.5`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```bash
+```shell
 npm install grunt-svg-sprite --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
-```javascript
+```js
 grunt.loadNpmTasks('grunt-svg-sprite');
 ```
 
-## The "svgsprite" task
+## The «svg_sprite» task
 
 ### Overview
-In your project's Gruntfile, add a section named `svgsprite` to the data object passed into `grunt.initConfig()`.
 
-```javascript
+In your project's Gruntfile, add a section named `svg_sprite` to the data object passed into `grunt.initConfig()`.
+
+```js
 grunt.initConfig({
-  svgsprite: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-})
+	svg_sprite		: {
+		options		: {
+			// Task-specific options go here.
+		},
+		your_target	: {
+			// Target-specific file lists and/or options go here.
+		},
+	},
+});
 ```
 
-Of course, the top level `options` object is optional and you may define as many targets as you want. Your targets should look like this:
+The task-specific `options` are optional and affect all defined targets. You may define as many targets (`your_target`) as you want.
+
+### Targets
+
+In the simplest case an «svg_sprite» target looks like this:
 
 ```javascript
 your_target: {
-  src      : ['path/to/svg/image/dir'],
-  dest     : 'path/to/main/output/dir'
-}
+	src			: ['path/to/assets/**/*.svg'],
+	dest		: 'path/to/css/dir',
+	options		: {
+		// Target-specific options
+	}
+},
 ```
 
-As [svg-sprite](https://github.com/jkphl/svg-sprite) accepts exactly **one input directory** for each run, only the first element of the `src` resource list will be used. That said, you may also provide a simple string as `src` argument: 
+However, as the `path/to/assets` would become part of the shape IDs, you will most likely want to add a working directory in most cases:
 
 ```javascript
 your_target: {
-  src      : 'path/to/svg/image/dir',
-  dest     : 'path/to/main/output/dir'
-}
+	expand		: true,
+	cwd			: 'path/to/assets',
+	src			: ['**/*.svg'],
+	dest		: 'path/to/css/dir',
+	options		: {
+		// Target-specific options
+	}
+},
 ```
 
 ### Options
 
-You may provide both task and target specific `options`:
+As **target-specific options** you may provide a [main configuration object](https://github.com/jkphl/svg-sprite#main-configuration) as described in the *svg-sprite* manual. Configuration-wise, *svg-sprite* and *grunt-svg-sprite* differ only in one respect:
 
-```javascript
-your_target: {
-  src      : 'path/to/svg/dir',
-  dest     : 'path/to/css/dir',
+#### options.dest → dest
 
-  // Target specific options  
-  options  : {
-    dims   : true,
-    keep   : true
-  }
-}
-```
+Type: `String`
+Default value: `'.'`
 
-The options are passed to [svg-sprite](https://github.com/jkphl/svg-sprite) as configuration values. A complete reference is [available here](https://github.com/jkphl/svg-sprite#available-options).
-
-|Option       |Description  |
-|:------------|:------------|
-|render       |Rendering configuration (output formats like CSS, Sass, LESS, HTML with inline SVG, etc.; [details see here](https://github.com/jkphl/svg-sprite#rendering-configuration))|
-|spritedir    |Sprite subdirectory name [`"svg"`]|
-|sprite       |Sprite file name [`"sprite"`]|
-|prefix       |CSS selector prefix [`"svg"`]|
-|common       |Common CSS selector for all images [*empty*]|
-|maxwidth     |Maximum single image width [`1000`]|
-|maxheight    |Maximum single image height [`1000`]|
-|padding      |Transparent padding around the single images (in pixel) [`0`]|
-|layout       |Image arrangement within the sprite (`"vertical"`, `"horizontal"` or `"diagonal"`) [`"vertical"`]|
-|pseudo       |Character sequence for denoting CSS pseudo classes [`"~"`]|
-|dims         |Render image dimensions as separate CSS rules [`false`]|
-|keep         |Keep intermediate SVG files (inside the sprite subdirectory) [`false`]|
-|recursive    |Recursive scan of the input directory for SVG files [`false`]|
-|verbose      | Output verbose progress information (0-3) [`0`]|
-|cleanwith    |Module to be used for SVG cleaning. Currently "scour" or "svgo" [`"svgo"`]|
-|cleanconfig  |Configuration options for the cleaning module [`{}`]|
+Instead of being nested inside the `options` object, *svg-sprite*'s `dest` property gets **promoted one level up** and becomes part of the Grunt target configuration itself (see examples above). 
 
 ### Usage Examples
 
 #### Basic example
-In this very basic example, the default options are used to create an SVG sprite along with a suitable CSS file (the `render.css` option defaults to `TRUE`):
+
+In this very basic example, mostly default settings will be applied to create a traditional CSS sprite (bundle of SVG sprite and CSS stylesheet).
 
 ```javascript
 grunt.initConfig({
-  svgsprite: {
-    spriteCSS: {
-      src: ['path/to/svg/dir'],
-      dest: 'path/to/css/dir'
-    }
-  }
-})
+	svg_sprite					: {
+		basic					: {
+		
+			// Target basics
+			expand				: true,
+			cwd					: 'assets',
+			src					: ['**/*.svg'],
+			dest				: 'out',
+			
+			// Target options
+			options				: {
+				mode			: {
+					css			: {		// Activate the «css» mode
+						render	: {
+							css	: true	// Activate CSS output (with default options)
+						}
+					}
+				}
+			}
+		}
+	}
+});
 ```
 
-These files are created at `path/to/css/dir`:
+The following files and directories are created:
 
 ```bash
-|-- sprite.css
-`-- svg
-    `-- sprite.svg
+out
+`-- css
+    |-- sprite.css
+    `-- svg
+        `-- sprite.css-495d2010.svg
 ```
 
-#### Sass example
-In this slightly more verbose example, custom options are used to disable CSS output and create Sass resources instead. Also, the images will be downscaled to 50 x 50 pixel (if necessary) and padded by 10 pixels before creating the SVG sprite. Finally, CSS rules specifying the image dimensions will be added and the optimized, intermediate SVG images used for creating the sprite won't be discarded.
+> The cryptical looking part in the SVG's file name is the result of *svg-sprite*'s cache busting feature which is enabled by default for CSS sprites. We'll turn this off in the next example.
+
+#### More complex example
+
+The following example is a little more complex:
+
+* We'll create a **«view» CSS sprite** and a **«symbol» sprite** in one go.
+* Instead of CSS, we'll render a **Sass stylesheet** resource for the «view» sprite.
+* We'll **turn off cache busting** for the «view» sprite and create **extra CSS rules specifying each shape's dimensions**.
+* We'll **downscale the SVG shapes** to 32×32 pixels if necessary and **add 10 pixels padding** to all sides.
+* We'll keep the intermediate SVG source files.
 
 ```javascript
 grunt.initConfig({
-  svgsprite       : {
-    spriteSass    : {
-      src         : ['path/to/svg/dir'],
-      dest        : 'path/to/css/dir',
-      options     : {
-        render    : {
-          css     : false,
-          scss    : {
-            dest  : 'sass/_sprite'
-          }
-        },
-        maxwidth  : 50,
-        maxheight : 50,
-        padding   : 10,
-        keep      : true,
-        dims      : true
-      }
-    }
-  }
-})
+	svg_sprite					: {
+		complex: {
+		
+			// Target basics
+			expand					: true,
+			cwd						: 'assets',
+			src						: ['**/*.svg'],
+			dest					: 'out',
+			
+			// Target options
+			options					: {
+				shape				: {
+					dimension		: {			// Set maximum dimensions
+						maxWidth	: 32,
+						maxHeight	: 32
+					},
+					spacing			: {			// Add padding
+						padding		: 10
+					},
+					dest			: 'out/intermediate-svg'	// Keep the intermediate files
+				},
+				mode				: {
+					view			: {			// Activate the «view» mode
+						bust		: false,
+						render		: {
+							scss	: true		// Activate Sass output (with default options)
+						}
+					},
+					symbol			: true		// Activate the «symbol» mode
+				}
+			}
+		}
+	}
+});
 ```
 
-These files are created at `path/to/css/dir` (when run with the example SVG images coming with *grunt-svg-sprite*):
+The following files and directories are created:
 
-```bash
-|-- sass
-|   `-- _sprite.scss
-`-- svg
-    |-- sprite.svg
-    |-- weather-clear-night.svg
-    |-- weather-clear.svg
-    |-- weather-few-clouds-night.svg
-    |-- weather-few-clouds.svg
-    |-- weather-overcast.svg
-    |-- weather-severe-alert.svg
-    |-- weather-showers-scattered.svg
-    |-- weather-showers.svg
-    |-- weather-snow.svg
-    |-- weather-storm.svg
-    `-- weather-storm~hover.svg
+```javascript
+out
+|-- intermediate-svg
+|   |-- weather-clear.svg
+|   |-- weather-snow.svg
+|   `-- weather-storm.svg
+|-- symbol
+|   `-- svg
+|       `-- sprite.symbol.svg
+`-- view
+    |-- sprite.scss
+    `-- svg
+        `-- sprite.view.svg
 ```
 
-#### Custom output formats & inline SVG embedding
+#### Advanced features
 
-The output rendering of *grunt-svg-sprite* is based on [Mustache](http://mustache.github.io) templates, which enables **full customization of the generated results**. You can even introduce completely new output formats. For details please see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#custom-output-formats).
+For more advanced features like
 
-Also, you may use *grunt-svg-sprite* to create an **inline SVG sprite** that can be embedded directly into your HTML documents. Please see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#inline-embedding) for details.
+*	[custom transforms](https://github.com/jkphl/svg-sprite#b-2-custom-transformations-object-values),
+*	[meta data injection](https://github.com/jkphl/svg-sprite#a-1-meta-data-injection),
+*	customizing output templates or
+*	introducing new output formats
 
-## Contributing
+please refer to the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
+
+Contributing
+------------
+
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 Release history
 ---------------
 
-#### v0.3.2
-*	[Compatibility release](https://github.com/jkphl/svg-sprite#v032)
-*	Added a Stylus output template
+#### v1.0.0
 
-#### v0.3.1
-*	[Compatibility release](https://github.com/jkphl/svg-sprite#v031)
-*	Documentation corrections
+*	First release of the new module generation, compatible with [svg-sprite 1.0.0](https://github.com/jkphl/svg-sprite#v100)
+*	Multiple sprite formats
+*	More intuitive configuration style
+*	Fewer dependencies
 
-#### v0.3.0
-*	[Compatibility release](https://github.com/jkphl/svg-sprite#v030)
-*	Fixed bug with SVGO plugin configuration ([#13](https://github.com/jkphl/grunt-svg-sprite/issues/13))
-*	Added new HTML output format for rendering an inline SVG HTML implementation ([#12](https://github.com/jkphl/grunt-svg-sprite/issues/12))
-*	Added new SVG output format for rendering an inline SVG sprite ([#12](https://github.com/jkphl/grunt-svg-sprite/issues/12))
-*	Documentation corrections
+Legal
+-----
 
-#### v0.2.0
-*	Compatibility release
-*	Fixed tests after fixing the [padding bug in svg-sprite](https://github.com/jkphl/svg-sprite/pull/10)
-
-#### v0.1.5
-*	Compatibility release
-
-#### v0.1.4
-*	Compatibility release
-
-#### v0.1.3
-*	Compatibility release
-
-#### v0.1.2
-*	Compatibility release
-
-#### v0.1.0
-*	Added support for omitting the sprite subdirectory ([svg-sprite issue #5](https://github.com/jkphl/svg-sprite/issues/5))
-*	Added support for Mustache template based rendering ([svg-sprite issue #6](https://github.com/jkphl/svg-sprite/issues/6))
-*	**Breaking change**: Dropped `css`, `sass`, `sassout`, `less` and `lessout` configuration options and added `render` instead (see the [svg-sprite documentation](https://github.com/jkphl/svg-sprite#rendering-configuration) for a description of the available options)
-
-#### v0.0.5
-*	Added support for LESS output ([#6](https://github.com/jkphl/grunt-svg-sprite/issues/6))
-
-#### v0.0.4
-*	Updated dependency to bugfixed svg-sprite ([#3](https://github.com/jkphl/grunt-svg-sprite/issues/3))
-
-#### v0.0.3
-*	Updated dependency to bugfixed svg-sprite ([#2](https://github.com/jkphl/grunt-svg-sprite/issues/2))
-
-#### v0.0.2
-*	Changed devDependencies
-
-#### v0.0.1
-*	Initial release
-
-##Legal
-Copyright © 2014 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl)
+Copyright © 2014 [Joschi Kuphal](https://jkphl.is) (<joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl))
 
 *grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
 
 The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
+
+
+[npm-url]: https://npmjs.org/package/grunt-svg-sprite
+[npm-image]: https://badge.fury.io/js/grunt-svg-sprite.png
+
+[travis-url]: http://travis-ci.org/jkphl/grunt-svg-sprite
+[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.png?branch=dev
+
+[coveralls-url]: https://coveralls.io/r/jkphl/grunt-svg-sprite?branch=dev
+[coveralls-image]: https://coveralls.io/repos/jkphl/grunt-svg-sprite/badge.png?branch=dev
+
+[depstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite
+[depstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite.svg

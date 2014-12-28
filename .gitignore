@@ -1,8 +1,8 @@
-node_modules
-npm-debug.log
-tmp
+.project
+*.md.html
+**/*.md.html
 /.settings
 /.buildpath
-/.project
-/.npmignore
-/*.md.html
+/node_modules
+/npm-debug.log
+/tmp
