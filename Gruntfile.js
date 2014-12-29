@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 		// Configuration to be run (and then tested).
 		svg_sprite: {
 			options: {
-				verbose: 3
+				log: 'info'
 			},
 			orthogonal: {
 				src: ['**/*.svg'],

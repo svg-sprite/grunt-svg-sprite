@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "svg-sprite": "^1.0.0",
-    "prettysize": "0.0.3",
+    "prettysize": "^0.0.3",
     "chalk": "^0.5.1"
   },
   "devDependencies": {

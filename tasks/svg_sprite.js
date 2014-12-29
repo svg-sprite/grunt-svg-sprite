@@ -42,6 +42,7 @@ module.exports = function(grunt) {
 		if (spriter) {
 			var done		= this.async();
 			spriter.compile(function(error, result) {
+				console.log();
 				if (error) {
 					
 				} else {
