@@ -217,10 +217,17 @@ Release history
 ---------------
 
 #### v1.0.1
-*	First release of the new plugin generation, compatible with [svg-sprite 1.0.1](https://github.com/jkphl/svg-sprite/tree/v1.0.1)
-*	Multiple sprite formats
-*	More intuitive configuration style
-*	Fewer dependencies
+* First release of the new plugin generation, compatible with [svg-sprite 1.0.1](https://github.com/jkphl/svg-sprite/tree/v1.0.1)
+* Rewritten from scratch ([#18](https://github.com/jkphl/grunt-svg-sprite/issues/18))
+* Dropped [libxmljs](https://github.com/polotek/libxmljs) dependency for improving Windows support ([#14](https://github.com/jkphl/grunt-svg-sprite/issues/14))
+* Added support for `view`, `symbol` and `stack` modes ([#19](https://github.com/jkphl/grunt-svg-sprite/issues/19), [#24](https://github.com/jkphl/grunt-svg-sprite/issues/24))
+* Switched to relative positioning in CSS sprites ([#23](https://github.com/jkphl/grunt-svg-sprite/issues/23))
+* Made the configuration of Mustache templates and destinations more intuitive
+* Enabled customization of shape IDs
+* Enabled custom SVG transformations
+* Enhanced `padding` options ([#20](https://github.com/jkphl/grunt-svg-sprite/issues/20))
+* Added cache busting for `css` and `view` mode (enabled by default; [#9](https://github.com/jkphl/grunt-svg-sprite/issues/9))
+* Added support for meta data injection
 
 For older release notes please [see here](https://github.com/jkphl/grunt-svg-sprite/tree/00f36c5a217798bfa22a9b80c8bd2a75dcbb32dd#release-history).
 
