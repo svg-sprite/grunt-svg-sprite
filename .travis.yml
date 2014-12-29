@@ -3,6 +3,9 @@ node_js:
   - '0.10'
 before_install:
   - npm update -g npm
-  - npm install -g grunt-cli
+  - npm install -g grunt-cli istanbul
+  - npm install coveralls
+script:
+  - scripts/travis.sh
 after_failure:
   - tar -cjf "grunt-svg-sprite_travis_${TRAVIS_BUILD_NUMBER}.tar.bz2" tmp && curl --ftp-create-dirs -T "grunt-svg-sprite_travis_${TRAVIS_BUILD_NUMBER}.tar.bz2" -u $FTP_USER:$FTP_PASSWORD "ftp://jkphl.is/${TRAVIS_REPO_SLUG}/grunt-svg-sprite_travis_${TRAVIS_BUILD_NUMBER}.tar.bz2"
