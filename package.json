@@ -30,7 +30,7 @@
     "coveralls": "jscoverage tasks && QUICKSORT_COV=1 nodeunit --reporter=lcov test | coveralls"
   },
   "dependencies": {
-    "svg-sprite": "^1.0.0",
+    "svg-sprite": "^1.0.1",
     "prettysize": "^0.0.3",
     "chalk": "^0.5.1"
   },
