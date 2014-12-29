@@ -1,4 +1,4 @@
-# grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]  [![Coverage Status][coveralls-image]][coveralls-url] [![Dependency Status][depstat-image]][depstat-url]
+# grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
 
 is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **reads in a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and creates **SVG sprites** in various flavours:
 
@@ -216,12 +216,13 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
-#### v1.0.0
-
-*	First release of the new module generation, compatible with [svg-sprite 1.0.0](https://github.com/jkphl/svg-sprite#v100)
+#### v1.0.1
+*	First release of the new plugin generation, compatible with [svg-sprite 1.0.1](https://github.com/jkphl/svg-sprite/tree/v1.0.1)
 *	Multiple sprite formats
 *	More intuitive configuration style
 *	Fewer dependencies
+
+For older release notes please [see here](https://github.com/jkphl/grunt-svg-sprite/tree/00f36c5a217798bfa22a9b80c8bd2a75dcbb32dd#release-history).
 
 Legal
 -----
@@ -237,10 +238,7 @@ The contained example SVG icons are part of the [Tango Icon Library](http://tang
 [npm-image]: https://badge.fury.io/js/grunt-svg-sprite.png
 
 [travis-url]: http://travis-ci.org/jkphl/grunt-svg-sprite
-[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.png?branch=dev
-
-[coveralls-url]: https://coveralls.io/r/jkphl/grunt-svg-sprite?branch=dev
-[coveralls-image]: https://coveralls.io/repos/jkphl/grunt-svg-sprite/badge.png?branch=dev
+[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.png
 
 [depstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite
 [depstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite.svg
