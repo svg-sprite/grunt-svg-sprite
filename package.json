@@ -26,8 +26,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt test",
-    "coveralls": "jscoverage tasks && QUICKSORT_COV=1 nodeunit --reporter=lcov test | coveralls"
+    "test": "grunt test"
   },
   "dependencies": {
     "svg-sprite": "^1.0.1",
@@ -40,10 +39,7 @@
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5",
     "svg2png": "^1.1.0",
-  	"image-diff": "^1.0.1",
-  	"jscoverage": "^0.5.9",
-    "coveralls": "^2.11.2",
-    "nodeunit": "^0.9.0"
+  	"image-diff": "^1.0.1"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"
