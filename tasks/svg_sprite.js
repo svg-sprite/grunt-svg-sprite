@@ -6,7 +6,7 @@
  * @see https://github.com/jkphl/grunt-svg-sprite
  *
  * @author Joschi Kuphal <joschi@kuphal.net> (https://github.com/jkphl)
- * @copyright © 2014 Joschi Kuphal
+ * @copyright © 2015 Joschi Kuphal
  * @license MIT https://raw.github.com/jkphl/grunt-svg-sprite/master/LICENSE.txt
  */
 

@@ -234,7 +234,7 @@ For older release notes please [see here](https://github.com/jkphl/grunt-svg-spr
 Legal
 -----
 
-Copyright © 2014 [Joschi Kuphal](https://jkphl.is) (<joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl))
+Copyright © 2015 [Joschi Kuphal](https://jkphl.is) (<joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl))
 
 *grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
 
