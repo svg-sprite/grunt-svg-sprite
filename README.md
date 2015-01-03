@@ -216,6 +216,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v1.0.6 Feature release
+* Compatible with [svg-sprite 1.0.6](https://github.com/jkphl/svg-sprite/tree/v1.0.6)
+* Made shape ID namespacing configurable ([#27](https://github.com/jkphl/grunt-svg-sprite/issues/27))
+* Added extended alignment options ([svg-sprite #33](https://github.com/jkphl/svg-sprite/issues/33))
+
 #### v1.0.5 Bufix release
 * Compatible with [svg-sprite 1.0.5](https://github.com/jkphl/svg-sprite/tree/v1.0.5)
 * Fixed XML & doctype declaration bug with inline sprites ([gulp-svg-sprite #2](https://github.com/jkphl/gulp-svg-sprite/issues/2))
