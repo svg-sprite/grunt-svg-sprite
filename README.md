@@ -216,6 +216,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v1.0.5 Bufix release
+* Compatible with [svg-sprite 1.0.5](https://github.com/jkphl/svg-sprite/tree/v1.0.5)
+* Fixed XML & doctype declaration bug with inline sprites ([gulp-svg-sprite #2](https://github.com/jkphl/gulp-svg-sprite/issues/2))
+* Added support for ID generator templates ([svg-sprite #37](https://github.com/jkphl/svg-sprite/issues/37))
+
 #### v1.0.1
 * First release of the new plugin generation, compatible with [svg-sprite 1.0.1](https://github.com/jkphl/svg-sprite/tree/v1.0.1)
 * Rewritten from scratch ([#18](https://github.com/jkphl/grunt-svg-sprite/issues/18))
