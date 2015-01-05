@@ -1,69 +1,69 @@
 {
-  "name": "grunt-svg-sprite",
-  "description": "SVG sprites & stacks galore — Grunt plugin wrapping around svg-sprite that reads in a bunch of SVG files, optimizes them and creates SVG sprites and CSS resources in various flavours",
-  "version": "1.0.7",
-  "homepage": "https://github.com/jkphl/grunt-svg-sprite",
-  "author": {
-    "name": "Joschi Kuphal",
-    "email": "joschi@kuphal.net",
-    "url": "https://jkphl.is"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jkphl/grunt-svg-sprite.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jkphl/grunt-svg-sprite/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jkphl/grunt-svg-sprite/blob/master/LICENSE.txt"
-    }
-  ],
-  "main": "Gruntfile.js",
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "scripts": {
-    "test": "grunt test"
-  },
-  "dependencies": {
-    "svg-sprite": "^1.0.7",
-    "prettysize": "^0.0.3",
-    "chalk": "^0.5.1"
-  },
-  "devDependencies": {
-    "grunt-contrib-jshint": "^0.9.2",
-    "grunt-contrib-clean": "^0.5.0",
-    "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt": "~0.4.5",
-    "svg2png": "^1.1.0",
-  	"image-diff": "^1.0.1"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.5"
-  },
-  "keywords": [
-    "gruntplugin",
-    "icon",
-    "icons",
-    "svg",
-    "png",
-    "sprite",
-    "spritesheet",
-    "stack",
-    "generator",
-    "css",
-    "sass",
-    "less",
-    "stylus",
-    "stylesheet",
-    "inline",
-    "html",
-    "vector",
-    "rwd",
-    "retina",
-    "mustache"
-  ]
+	"name": "grunt-svg-sprite",
+	"description": "SVG sprites & stacks galore — Grunt plugin wrapping around svg-sprite that reads in a bunch of SVG files, optimizes them and creates SVG sprites and CSS resources in various flavours",
+	"version": "1.0.8",
+	"homepage": "https://github.com/jkphl/grunt-svg-sprite",
+	"author": {
+		"name": "Joschi Kuphal",
+		"email": "joschi@kuphal.net",
+		"url": "https://jkphl.is"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jkphl/grunt-svg-sprite.git"
+	},
+	"bugs": {
+		"url": "https://github.com/jkphl/grunt-svg-sprite/issues"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/jkphl/grunt-svg-sprite/blob/master/LICENSE.txt"
+		}
+	],
+	"main": "Gruntfile.js",
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"scripts": {
+		"test": "grunt test"
+	},
+	"dependencies": {
+		"svg-sprite": "^1.0.8",
+		"prettysize": "^0.0.3",
+		"chalk": "^0.5.1"
+	},
+	"devDependencies": {
+		"grunt-contrib-jshint": "^0.9.2",
+		"grunt-contrib-clean": "^0.5.0",
+		"grunt-contrib-nodeunit": "^0.3.3",
+		"grunt": "~0.4.5",
+		"svg2png": "^1.1.0",
+		"image-diff": "^1.0.1"
+	},
+	"peerDependencies": {
+		"grunt": "~0.4.5"
+	},
+	"keywords": [
+		"gruntplugin",
+		"icon",
+		"icons",
+		"svg",
+		"png",
+		"sprite",
+		"spritesheet",
+		"stack",
+		"generator",
+		"css",
+		"sass",
+		"less",
+		"stylus",
+		"stylesheet",
+		"inline",
+		"html",
+		"vector",
+		"rwd",
+		"retina",
+		"mustache"
+	]
 }
