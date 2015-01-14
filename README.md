@@ -216,6 +216,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### v1.0.10 Feature release
+* Compatible with [svg-sprite 1.0.10](https://github.com/jkphl/svg-sprite/tree/v1.0.10)
+* Added support for custom mode keys
+
 #### v1.0.9 Maintenance release
 * Compatible with [svg-sprite 1.0.9](https://github.com/jkphl/svg-sprite/tree/v1.0.9)
 * Updated dependencies
