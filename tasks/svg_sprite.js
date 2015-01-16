@@ -26,16 +26,17 @@ module.exports = function(grunt) {
 			spriter			= spriter || new SVGSpriter(config);
 			var cwd			= path.resolve(f.orig.cwd || '.');
 			
-			f.src.filter(function(filepath) {
-				if (!grunt.file.exists(filepath)) {
-					grunt.log.warn('Source file "' + filepath + '" not found.');
+			f.src.map(function(file) {
+				return path.resolve(cwd, file);
+			}).filter(function(file) {
+				if (!grunt.file.exists(file)) {
+					grunt.log.warn('Source file "' + file + '" not found.');
 					return false;
 				} else {
 					return true;
 				}
 			}).forEach(function(file){
-				var p		= path.resolve(file);
-				this.add(p, path.relative(cwd, p), grunt.file.read(p));
+				this.add(file, path.relative(cwd, file), grunt.file.read(file));
 			}, spriter);
 		}, this);
 		

@@ -216,6 +216,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
+#### master (will become v1.0.12)
+* Fixed broken `cwd` support ([#32](https://github.com/jkphl/grunt-svg-sprite/issues/32))
+
 #### v1.0.11 Bugfix release
 * Compatible with [svg-sprite 1.0.11](https://github.com/jkphl/svg-sprite/tree/v1.0.11)
 * Fixed coordinate distortion in CSS sprites ([svg-sprite #41](https://github.com/jkphl/svg-sprite/issues/41))
