@@ -24,10 +24,13 @@ module.exports = function(grunt) {
 		this.files.forEach(function(f) {
 			config			= config || this.options({dest: path.resolve(f.orig.dest)});
 			spriter			= spriter || new SVGSpriter(config);
-			var cwd			= path.resolve(f.orig.cwd || '.');
+			var cwd			= path.normalize(f.orig.cwd || ''),
+			cwdAbs			= path.resolve(cwd || '.'),
+			expand			= !!f.orig.expand;
 			
 			f.src.map(function(file) {
-				return path.resolve(cwd, file);
+				file		= path.normalize(file);
+				return path.resolve(cwdAbs, (expand && cwd.length && (file.indexOf(cwd + path.sep) === 0)) ? file.substr(cwd.length + path.sep.length) : file);
 			}).filter(function(file) {
 				if (!grunt.file.exists(file)) {
 					grunt.log.warn('Source file "' + file + '" not found.');
@@ -36,7 +39,7 @@ module.exports = function(grunt) {
 					return true;
 				}
 			}).forEach(function(file){
-				this.add(file, path.relative(cwd, file), grunt.file.read(file));
+				this.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
 			}, spriter);
 		}, this);
 		
