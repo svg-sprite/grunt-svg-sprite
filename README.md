@@ -216,8 +216,11 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 Release history
 ---------------
 
-#### master (will become v1.0.12)
+#### v1.0.12 Maintenance (2015-01-27)
+* Compatible with [svg-sprite 1.0.12](https://github.com/jkphl/svg-sprite/tree/v1.0.12)
 * Fixed broken `cwd` support ([#32](https://github.com/jkphl/grunt-svg-sprite/issues/32))
+* Added dimension CSS output for non-CSS sprites ([svg-sprite #45](https://github.com/jkphl/svg-sprite/issues/45))
+* Bumped lodash dependency version ([svg-sprite #44](https://github.com/jkphl/svg-sprite/issues/44))
 
 #### v1.0.11 Bugfix release
 * Compatible with [svg-sprite 1.0.11](https://github.com/jkphl/svg-sprite/tree/v1.0.11)
