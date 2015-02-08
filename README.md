@@ -1,16 +1,16 @@
 # grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]
 
-is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **reads in a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and creates **SVG sprites** in various flavours:
+is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
 
-1. Traditional **CSS sprites** for use with background images ([configuration](#d-1-css-mode))
-2. CSS sprites with **pre-defined SVG views**, suitable for foreground images as well ([configuration](#d-2-view-mode))
-3. Inline sprites using the **`<defs>` element** ([configuration](#d-3-defs-mode))
-4. Inline sprites using the **`<symbol>` element** ([configuration](#d-4-symbol-mode))
-5. **SVG stacks** ([configuration](#d-5-stack-mode))
+*	Traditional [CSS sprites](http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS) for use as background images,
+*	CSS sprites with **pre-defined `<view>` elements**, useful for foreground images as well,
+*	inline sprites using the **`<defs>` element**,
+*	inline sprites using the **`<symbol>` element**
+*	and [SVG stacks](http://simurai.com/blog/2012/04/02/svg-stacks/).
 
 ## Features & configuration? → [svg-sprite](https://github.com/jkphl/svg-sprite)
 
-This manual covers only Grunt specific installation and configuration aspects. For a full list of features and options, please see the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
+This document covers only Grunt specific installation and configuration aspects. For a full list of features and options, please see the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
 
 ## Getting Started
 
@@ -79,7 +79,7 @@ your_target: {
 
 ### Options
 
-As **target-specific options** you may provide a [main configuration object](https://github.com/jkphl/svg-sprite#main-configuration) as described in the *svg-sprite* manual. Configuration-wise, *svg-sprite* and *grunt-svg-sprite* differ only in one respect:
+As **target-specific options** you may provide a [main configuration object](https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md) as described in the *svg-sprite* manual. Configuration-wise, *svg-sprite* and *grunt-svg-sprite* differ only in one respect:
 
 #### options.dest → dest
 
@@ -122,7 +122,7 @@ grunt.initConfig({
 
 The following files and directories are created:
 
-```bash
+```
 out
 `-- css
     |-- sprite.css
@@ -182,7 +182,7 @@ grunt.initConfig({
 
 The following files and directories are created:
 
-```javascript
+```
 out
 |-- intermediate-svg
 |   |-- weather-clear.svg
@@ -201,91 +201,29 @@ out
 
 For more advanced features like
 
-*	[custom transforms](https://github.com/jkphl/svg-sprite#b-2-custom-transformations-object-values),
-*	[meta data injection](https://github.com/jkphl/svg-sprite#a-1-meta-data-injection),
-*	customizing output templates or
+*	[custom transformation](https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#svg-transformations),
+*	[meta data injection](https://github.com/jkphl/svg-sprite/blob/master/docs/meta-data.md),
+*	[customizing output templates](https://github.com/jkphl/svg-sprite/blob/master/docs/templating.md) or
 *	introducing new output formats
 
 please refer to the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
+
 
 Contributing
 ------------
 
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-Release history
----------------
 
-#### v1.0.13 Maintenance (2015-01-28)
-* Compatible with [svg-sprite 1.0.13](https://github.com/jkphl/svg-sprite/tree/v1.0.13)
-* Fixed windows path separator bug ([gulp-svg-sprite #6](https://github.com/jkphl/gulp-svg-sprite/issues/6))
-* Made dimension attributes (width & height) optional ([svg-sprite #45](https://github.com/jkphl/svg-sprite/issues/45))
-* Added cache busting option for non-CSS sprites ([svg-sprite #48](https://github.com/jkphl/svg-sprite/issues/48))
+Changelog
+---------
 
-#### v1.0.12 Maintenance (2015-01-27)
-* Compatible with [svg-sprite 1.0.12](https://github.com/jkphl/svg-sprite/tree/v1.0.12)
-* Fixed broken `cwd` support ([#32](https://github.com/jkphl/grunt-svg-sprite/issues/32))
-* Added dimension CSS output for non-CSS sprites ([#31](https://github.com/jkphl/grunt-svg-sprite/issues/31))
-* Bumped lodash dependency version ([svg-sprite #44](https://github.com/jkphl/svg-sprite/issues/44))
+Please refer to the [changelog](CHANGELOG.md) for a complete release history.
 
-#### v1.0.11 Bugfix release
-* Compatible with [svg-sprite 1.0.11](https://github.com/jkphl/svg-sprite/tree/v1.0.11)
-* Fixed coordinate distortion in CSS sprites ([svg-sprite #41](https://github.com/jkphl/svg-sprite/issues/41))
-
-#### v1.0.10 Feature release
-* Compatible with [svg-sprite 1.0.10](https://github.com/jkphl/svg-sprite/tree/v1.0.10)
-* Added support for custom mode keys
-
-#### v1.0.9 Maintenance release
-* Compatible with [svg-sprite 1.0.9](https://github.com/jkphl/svg-sprite/tree/v1.0.9)
-* Updated dependencies
-* Introduced `svg` getter in templating shape variables
-* Fixed logging error in SVGO optimization
-* Fixed missing XML namespaces in SVG stack 
-* Fixed cache busting errors with example HTML document 
-
-#### v1.0.8 Bugfix release
-* Compatible with [svg-sprite 1.0.8](https://github.com/jkphl/svg-sprite/tree/v1.0.8)
-* Fixed broken rendering template path resolution ([#29](https://github.com/jkphl/grunt-svg-sprite/issues/29))
-
-#### v1.0.7 Feature & bugfix release
-* Compatible with [svg-sprite 1.0.7](https://github.com/jkphl/svg-sprite/tree/v1.0.7)
-* Improved error handling
-* Improved XML & DOCTYPE declaration handling and fixed ([#28](https://github.com/jkphl/grunt-svg-sprite/issues/28))
-
-#### v1.0.6 Feature release
-* Compatible with [svg-sprite 1.0.6](https://github.com/jkphl/svg-sprite/tree/v1.0.6)
-* Made shape ID namespacing configurable ([#27](https://github.com/jkphl/grunt-svg-sprite/issues/27))
-* Added extended alignment options ([svg-sprite #33](https://github.com/jkphl/svg-sprite/issues/33))
-
-#### v1.0.5 Bufix release
-* Compatible with [svg-sprite 1.0.5](https://github.com/jkphl/svg-sprite/tree/v1.0.5)
-* Fixed XML & doctype declaration bug with inline sprites ([gulp-svg-sprite #2](https://github.com/jkphl/gulp-svg-sprite/issues/2))
-* Added support for ID generator templates ([svg-sprite #37](https://github.com/jkphl/svg-sprite/issues/37))
-
-#### v1.0.1
-* First release of the new plugin generation, compatible with [svg-sprite 1.0.1](https://github.com/jkphl/svg-sprite/tree/v1.0.1)
-* Rewritten from scratch ([#18](https://github.com/jkphl/grunt-svg-sprite/issues/18))
-* Dropped [libxmljs](https://github.com/polotek/libxmljs) dependency for improving Windows support ([#14](https://github.com/jkphl/grunt-svg-sprite/issues/14))
-* Added support for `view`, `symbol` and `stack` modes ([#19](https://github.com/jkphl/grunt-svg-sprite/issues/19), [#24](https://github.com/jkphl/grunt-svg-sprite/issues/24))
-* Switched to relative positioning in CSS sprites ([#23](https://github.com/jkphl/grunt-svg-sprite/issues/23))
-* Made the configuration of Mustache templates and destinations more intuitive
-* Enabled customization of shape IDs
-* Enabled custom SVG transformations
-* Enhanced `padding` options ([#20](https://github.com/jkphl/grunt-svg-sprite/issues/20))
-* Added cache busting for `css` and `view` mode (enabled by default; [#9](https://github.com/jkphl/grunt-svg-sprite/issues/9))
-* Added support for meta data injection
-
-For older release notes please [see here](https://github.com/jkphl/grunt-svg-sprite/tree/00f36c5a217798bfa22a9b80c8bd2a75dcbb32dd#release-history).
 
 Legal
 -----
-
-Copyright © 2015 [Joschi Kuphal](https://jkphl.is) (<joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl))
-
-*grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt).
-
-The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
+Copyright © 2015 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl). *grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE.txt). The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
 
 
 [npm-url]: https://npmjs.org/package/grunt-svg-sprite
