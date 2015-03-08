@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 			spriter.compile(function(error, result) {
 				console.log();
 				if (error) {
-					grunt.fail.warn("SVG sprite compilation failed.\n" + error);
+					grunt.fail.warn('SVG sprite compilation failed with message: ' + error, 3);
 				} else {
 					for (var mode in result) {
 						for (var resource in result[mode]) {

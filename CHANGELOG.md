@@ -1,3 +1,6 @@
+## 1.0.20 (unreleased)
+* Added error message in case of compilations errors (#38)
+
 ## 1.0.19 Maintenance release (2015-03-08)
 * Compatible with [svg-sprite 1.0.19](https://github.com/jkphl/svg-sprite/tree/v1.0.19)
 * Changed alias for shape.dest CLI option

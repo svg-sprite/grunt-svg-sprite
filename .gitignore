@@ -1,5 +1,4 @@
 .project
-/nbproject
 *.md.html
 **/*.md.html
 /.settings
