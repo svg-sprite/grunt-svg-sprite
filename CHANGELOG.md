@@ -1,5 +1,5 @@
 ## 1.0.20 maintenance release (2015-03-28)
-* Compatible with [svg-sprite 1.0.20(https://github.com/jkphl/svg-sprite/tree/v1.0.20)
+* Compatible with [svg-sprite 1.0.20](https://github.com/jkphl/svg-sprite/tree/v1.0.20)
 * Fixed several CLI bugs in svg-sprite ([svg-sprite #65](https://github.com/jkphl/svg-sprite/issues/65))
 * Updated dependencies
 * Added error message in case of compilations errors ([#38](https://github.com/jkphl/grunt-svg-sprite/issues/38))
