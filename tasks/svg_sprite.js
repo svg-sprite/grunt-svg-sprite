@@ -18,13 +18,19 @@ module.exports = function(grunt) {
 
 	grunt.registerMultiTask('svg_sprite', 'Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS / Stylus etc. resources out of them', function() {
 		var spriter			= null,
-		config				= null;
+		config				= null,
+		rtrim				= function(str, strip) {
+			while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
+				str			= str.substr(0, str.length - strip.length);
+			}
+			return str;
+		};
 
 		// Iterate over all specified file groups.
 		this.files.forEach(function(f) {
 			config			= config || this.options({dest: path.resolve(f.orig.dest)});
 			spriter			= spriter || new SVGSpriter(config);
-			var cwd			= path.normalize(f.orig.cwd || ''),
+			var cwd			= rtrim(path.normalize(f.orig.cwd || ''), path.sep),
 			cwdAbs			= path.resolve(cwd || '.'),
 			expand			= !!f.orig.expand;
 			
