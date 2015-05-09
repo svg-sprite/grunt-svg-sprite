@@ -53,7 +53,7 @@ The task-specific `options` are optional and affect all defined targets. You may
 
 In the simplest case an «svg_sprite» target looks like this:
 
-```javascript
+```js
 your_target: {
 	src			: ['path/to/assets/**/*.svg'],
 	dest		: 'path/to/css/dir',
@@ -65,7 +65,7 @@ your_target: {
 
 However, as the `path/to/assets` would become part of the shape IDs, you will most likely want to add a working directory in most cases:
 
-```javascript
+```js
 your_target: {
 	expand		: true,
 	cwd			: 'path/to/assets',
@@ -86,7 +86,7 @@ As **target-specific options** you may provide a [main configuration object](htt
 Type: `String`
 Default value: `'.'`
 
-Instead of being nested inside the `options` object, *svg-sprite*'s `dest` property gets **promoted one level up** and becomes part of the Grunt target configuration itself (see examples above). 
+Instead of being nested inside the `options` object, *svg-sprite*'s `dest` property gets **promoted one level up** and becomes part of the Grunt target configuration itself (see examples above).
 
 ### Usage Examples
 
@@ -94,17 +94,17 @@ Instead of being nested inside the `options` object, *svg-sprite*'s `dest` prope
 
 In this very basic example, mostly default settings will be applied to create a traditional CSS sprite (bundle of SVG sprite and CSS stylesheet).
 
-```javascript
+```js
 grunt.initConfig({
 	svg_sprite					: {
 		basic					: {
-		
+
 			// Target basics
 			expand				: true,
 			cwd					: 'assets',
 			src					: ['**/*.svg'],
 			dest				: 'out',
-			
+
 			// Target options
 			options				: {
 				mode			: {
@@ -142,17 +142,17 @@ The following example is a little more complex:
 * We'll **downscale the SVG shapes** to 32×32 pixels if necessary and **add 10 pixels padding** to all sides.
 * We'll keep the intermediate SVG source files.
 
-```javascript
+```js
 grunt.initConfig({
 	svg_sprite					: {
 		complex: {
-		
+
 			// Target basics
 			expand					: true,
 			cwd						: 'assets',
 			src						: ['**/*.svg'],
 			dest					: 'out',
-			
+
 			// Target options
 			options					: {
 				shape				: {
@@ -227,10 +227,10 @@ Copyright © 2015 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 
 
 [npm-url]: https://npmjs.org/package/grunt-svg-sprite
-[npm-image]: https://badge.fury.io/js/grunt-svg-sprite.png
+[npm-image]: https://badge.fury.io/js/grunt-svg-sprite.svg
 
 [travis-url]: http://travis-ci.org/jkphl/grunt-svg-sprite
-[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.png
+[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.svg
 
 [depstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite
 [depstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite.svg
