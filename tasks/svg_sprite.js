@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			var cwd			= rtrim(path.normalize(f.orig.cwd || ''), path.sep),
 			cwdAbs			= path.resolve(cwd || '.'),
 			expand			= !!f.orig.expand;
-			
+
 			f.src.map(function(file) {
 				file		= path.normalize(file);
 				return path.resolve(cwdAbs, (expand && cwd.length && (file.indexOf(cwd + path.sep) === 0)) ? file.substr(cwd.length + path.sep.length) : file);
@@ -41,14 +41,13 @@ module.exports = function(grunt) {
 				if (!grunt.file.exists(file)) {
 					grunt.log.warn('Source file "' + file + '" not found.');
 					return false;
-				} else {
-					return true;
 				}
-			}).forEach(function(file){
+				return true;
+			}).forEach(function(file) {
 				this.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
 			}, spriter);
 		}, this);
-		
+
 		if (spriter) {
 			var done		= this.async();
 			spriter.compile(function(error, result) {

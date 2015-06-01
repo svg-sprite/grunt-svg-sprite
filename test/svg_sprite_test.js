@@ -5,7 +5,7 @@ imageDiff			= require('image-diff');
 /*
  * ======== A Handy Little Nodeunit Reference ========
  * https://github.com/caolan/nodeunit
- * 
+ *
  * Test methods: test.expect(numAssertions) test.done() Test assertions:
  * test.ok(value, [message]) test.equal(actual, expected, [message])
  * test.notEqual(actual, expected, [message]) test.deepEqual(actual, expected,
@@ -41,7 +41,7 @@ exports.svg_sprite = {
 					}, function(error, imagesAreSame) {
 						test.ifError(error);
 						test.ok(imagesAreSame, 'The horizontal sprite doesn\'t match the expected result.');
-						
+
 						svg2png('tmp/svg/diagonal.svg', 'tmp/png/diagonal.png', function(error) {
 							test.ifError(error);
 							imageDiff({
@@ -51,7 +51,7 @@ exports.svg_sprite = {
 							}, function(error, imagesAreSame) {
 								test.ifError(error);
 								test.ok(imagesAreSame, 'The diagonal sprite doesn\'t match the expected result.');
-								
+
 								svg2png('tmp/svg/packed.svg', 'tmp/png/packed.png', function(error) {
 									test.ifError(error);
 									imageDiff({

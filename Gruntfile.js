@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 								css: true,
 								scss: true,
 								less: true,
-								styl: true,
+								styl: true
 							},
 							bust: false
 						},
@@ -105,9 +105,9 @@ module.exports = function(grunt) {
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'svg_sprite', 'nodeunit']);
+	grunt.registerTask('test', ['jshint', 'clean', 'svg_sprite', 'nodeunit']);
 
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'test']);
+	grunt.registerTask('default', ['test']);
 
 };
