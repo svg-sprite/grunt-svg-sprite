@@ -32,7 +32,7 @@
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-nodeunit": "^0.4.1",
-    "image-diff": "^1.0.1",
+    "image-diff": "^1.0.3",
     "svg2png": "^1.1.1"
   },
   "peerDependencies": {
