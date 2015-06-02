@@ -1,3 +1,6 @@
+## 1.1.3 Bugfix release (unreleased)
+* Several minor bugfixes ([#47](https://github.com/jkphl/grunt-svg-sprite/issues/47), [#48](https://github.com/jkphl/grunt-svg-sprite/issues/48), [#49](https://github.com/jkphl/grunt-svg-sprite/issues/49))
+
 ## 1.1.2 Bugfix release (2015-04-22)
 * Compatible with [svg-sprite 1.1.2](https://github.com/jkphl/svg-sprite/tree/v1.1.2)
 * Fixed symbol example template regression bug ([svg-sprite #70](https://github.com/jkphl/svg-sprite/issues/70#issuecomment-95307588))
