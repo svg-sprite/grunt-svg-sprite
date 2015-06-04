@@ -1,5 +1,5 @@
-## 1.2.0 Feature release (2016-06-04)
-* Compatible with [svg-sprite 1.2.0](https://github.com/jkphl/svg-sprite/tree/v1.2.0)
+## 1.2.1 Feature release (2016-06-04)
+* Compatible with [svg-sprite 1.2.1](https://github.com/jkphl/svg-sprite/tree/v1.2.1)
 * Updated dependencies & development dependencies ([svg-sprite #67](https://github.com/jkphl/svg-sprite/pull/67), [svg-sprite #82](https://github.com/jkphl/svg-sprite/issues/82))
 * Relocated the shape transformations list config option
 * Added custom root attributes support ([svg-sprite #87](https://github.com/jkphl/svg-sprite/issues/87))
