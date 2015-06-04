@@ -1,6 +1,10 @@
-## 1.1.3 Bugfix release (unreleased)
+## 1.2.0 Feature release (2016-06-04)
+* Compatible with [svg-sprite 1.2.0](https://github.com/jkphl/svg-sprite/tree/v1.2.0)
+* Updated dependencies & development dependencies ([svg-sprite #67](https://github.com/jkphl/svg-sprite/pull/67), [svg-sprite #82](https://github.com/jkphl/svg-sprite/issues/82))
+* Relocated the shape transformations list config option
+* Added custom root attributes support ([svg-sprite #87](https://github.com/jkphl/svg-sprite/issues/87))
+* Introduced a global post-processing transformation option ([svg-sprite #64](https://github.com/jkphl/svg-sprite/issues/64), [svg-sprite #87](https://github.com/jkphl/svg-sprite/issues/87))
 * Several minor bugfixes ([#47](https://github.com/jkphl/grunt-svg-sprite/issues/47), [#48](https://github.com/jkphl/grunt-svg-sprite/issues/48), [#49](https://github.com/jkphl/grunt-svg-sprite/issues/49))
-* Updated development dependencies
 
 ## 1.1.2 Bugfix release (2015-04-22)
 * Compatible with [svg-sprite 1.1.2](https://github.com/jkphl/svg-sprite/tree/v1.1.2)
