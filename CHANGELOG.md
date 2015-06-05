@@ -1,4 +1,4 @@
-## 1.2.1 Feature release (2016-06-05)
+## 1.2.2 Feature release (2016-06-05)
 * Compatible with [svg-sprite 1.2.2](https://github.com/jkphl/svg-sprite/tree/v1.2.2)
 * Introduced "icon" box sizing strategy ([svg-sprite #57](https://github.com/jkphl/svg-sprite/pull/57), [#35](https://github.com/jkphl/grunt-svg-sprite/issues/35#issuecomment-74232726))
 
