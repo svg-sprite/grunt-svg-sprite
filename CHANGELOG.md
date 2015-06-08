@@ -1,3 +1,6 @@
+## 1.2.4 Maintenance release (unreleased)
+* Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) 
+
 ## 1.2.3 Bugfix release (2016-06-08)
 * Compatible with [svg-sprite 1.2.3](https://github.com/jkphl/svg-sprite/tree/v1.2.3)
 * Fixed string conversion regression ([svg-sprite #89](https://github.com/jkphl/svg-sprite/issues/89))
