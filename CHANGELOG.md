@@ -1,15 +1,15 @@
 ## 1.2.4 Maintenance release (unreleased)
 * Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) 
 
-## 1.2.3 Bugfix release (2016-06-08)
+## 1.2.3 Bugfix release (2015-06-08)
 * Compatible with [svg-sprite 1.2.3](https://github.com/jkphl/svg-sprite/tree/v1.2.3)
 * Fixed string conversion regression ([svg-sprite #89](https://github.com/jkphl/svg-sprite/issues/89))
 
-## 1.2.2 Feature release (2016-06-05)
+## 1.2.2 Feature release (2015-06-05)
 * Compatible with [svg-sprite 1.2.2](https://github.com/jkphl/svg-sprite/tree/v1.2.2)
 * Introduced "icon" box sizing strategy ([svg-sprite #57](https://github.com/jkphl/svg-sprite/pull/57), [#35](https://github.com/jkphl/grunt-svg-sprite/issues/35#issuecomment-74232726))
 
-## 1.2.1 Feature release (2016-06-04)
+## 1.2.1 Feature release (2015-06-04)
 * Compatible with [svg-sprite 1.2.1](https://github.com/jkphl/svg-sprite/tree/v1.2.1)
 * Updated dependencies & development dependencies ([svg-sprite #67](https://github.com/jkphl/svg-sprite/pull/67), [svg-sprite #82](https://github.com/jkphl/svg-sprite/issues/82))
 * Relocated the shape transformations list config option
