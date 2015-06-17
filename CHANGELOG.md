@@ -1,5 +1,6 @@
-## 1.2.4 Maintenance release (unreleased)
-* Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) 
+## 1.2.4 Maintenance release (2015-06-17)
+* Compatible with [svg-sprite 1.2.4](https://github.com/jkphl/svg-sprite/tree/v1.2.4)
+* Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) ([gulp-svg-sprite #25](https://github.com/jkphl/gulp-svg-sprite/issues/25))
 
 ## 1.2.3 Bugfix release (2015-06-08)
 * Compatible with [svg-sprite 1.2.3](https://github.com/jkphl/svg-sprite/tree/v1.2.3)
