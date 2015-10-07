@@ -19,6 +19,7 @@ module.exports = function(grunt) {
 	grunt.registerMultiTask('svg_sprite', 'Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS / Stylus etc. resources out of them', function() {
 		var spriter			= null,
 		config				= null,
+		errors				= [],
 		rtrim				= function(str, strip) {
 			while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
 				str			= str.substr(0, str.length - strip.length);
@@ -29,10 +30,18 @@ module.exports = function(grunt) {
 		// Iterate over all specified file groups.
 		this.files.forEach(function(f) {
 			config			= config || this.options({dest: path.resolve(f.orig.dest)});
-			spriter			= spriter || new SVGSpriter(config);
 			var cwd			= rtrim(path.normalize(f.orig.cwd || ''), path.sep),
 			cwdAbs			= path.resolve(cwd || '.'),
 			expand			= !!f.orig.expand;
+
+			if (spriter === null) {
+				spriter		= new SVGSpriter(config);
+				spriter.config.log.on('logging', function (transport, level, msg) {
+					if (level === 'error') {
+						errors.push(msg);
+					}
+				});
+			}
 
 			f.src.map(function(file) {
 				file		= path.normalize(file);
@@ -62,6 +71,10 @@ module.exports = function(grunt) {
 								grunt.log.writeln(chalk.green('✔ ') + file.relative + chalk.gray(' (' + pretty(file.contents.length) + ')'));
 							}
 						}
+					}
+					if (errors.length) {
+						console.log();
+						grunt.fail.warn('The following errors occured:\n✖ ' + errors.join('\n✖ ') + '\n');
 					}
 				}
 				done();
