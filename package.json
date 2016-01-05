@@ -1,7 +1,7 @@
 {
   "name": "grunt-svg-sprite",
   "description": "SVG sprites & stacks galore — Grunt plugin wrapping around svg-sprite that reads in a bunch of SVG files, optimizes them and creates SVG sprites and CSS resources in various flavours",
-  "version": "1.2.17",
+  "version": "1.2.18",
   "homepage": "https://github.com/jkphl/grunt-svg-sprite",
   "author": "Joschi Kuphal <joschi@kuphal.net> (https://jkphl.is)",
   "repository": {
@@ -26,7 +26,7 @@
     "grunt": "^0.4.5",
     "chalk": "^1.1.1",
     "prettysize": "^0.0.3",
-    "svg-sprite": "~1.2.17"
+    "svg-sprite": "~1.2.18"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
