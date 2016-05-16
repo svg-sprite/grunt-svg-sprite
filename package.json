@@ -36,7 +36,8 @@
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "image-diff": "^1.2.0",
-    "svg2png": "jkphl/svg2png"
+    "svg2png": "jkphl/svg2png",
+    "pn": "^1.0.0"
   },
   "keywords": [
     "gruntplugin",
