@@ -37,6 +37,7 @@
     "grunt-contrib-nodeunit": "^1.0.0",
     "image-diff": "^1.2.0",
     "svg2png": "jkphl/svg2png",
+    "mkdirp": "^0.5.1",
     "pn": "^1.0.0"
   },
   "keywords": [
