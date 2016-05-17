@@ -1,4 +1,5 @@
-# grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]  [![Development Dependency Status][devdepstat-image]][devdepstat-url]  [![Peer Dependency Status][peerdepstat-image]][peerdepstat-url]
+grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]  [![Development Dependency Status][devdepstat-image]][devdepstat-url]  [![Peer Dependency Status][peerdepstat-image]][peerdepstat-url]
+==========
 
 is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
 
