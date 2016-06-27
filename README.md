@@ -1,4 +1,4 @@
-grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]  [![Development Dependency Status][devdepstat-image]][devdepstat-url]  [![Peer Dependency Status][peerdepstat-image]][peerdepstat-url]
+grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]  [![Development Dependency Status][devdepstat-image]][devdepstat-url]  [![Peer Dependency Status][peerdepstat-image]][peerdepstat-url]
 ==========
 
 is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
@@ -229,6 +229,7 @@ Copyright © 2015 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 
 [npm-url]: https://npmjs.org/package/grunt-svg-sprite
 [npm-image]: https://badge.fury.io/js/grunt-svg-sprite.svg
+[npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite.svg
 
 [travis-url]: http://travis-ci.org/jkphl/grunt-svg-sprite
 [travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.svg
