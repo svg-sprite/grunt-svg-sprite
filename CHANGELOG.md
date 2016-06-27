@@ -1,3 +1,7 @@
+## 1.3.2 Maintenance release (2016-04-27)
+* Compatible with [svg-sprite 1.3.2](https://github.com/jkphl/svg-sprite/tree/v1.3.2)
+* Updated dependencies
+
 ## 1.3.1 Bugfix release (2015-12-17)
 * Compatible with [svg-sprite 1.3.1](https://github.com/jkphl/svg-sprite/tree/v1.3.1)
 * Fixed modeless run ([svg-sprite #158](https://github.com/jkphl/svg-sprite/issues/158), [gulp-svg-sprite #42](https://github.com/jkphl/gulp-svg-sprite/issues/42))
