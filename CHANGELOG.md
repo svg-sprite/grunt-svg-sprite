@@ -1,4 +1,5 @@
-## 1.3.7 Compatibility release (unreleased)
+## 1.3.7 Compatibility release (2017-06-01)
+* Compatible with [svg-sprite 1.3.7](https://github.com/jkphl/svg-sprite/tree/v1.3.7)
 * Updated dependencies
 
 ## 1.3.6 Compatibility release (2016-08-29)
