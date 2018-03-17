@@ -11,6 +11,7 @@ node_js:
   - '9.0'
 
 before_install:
+  - npm install -g grunt
   - npm install -g grunt-cli
 
 after_failure:
