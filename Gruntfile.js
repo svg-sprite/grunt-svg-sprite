@@ -2,7 +2,7 @@
  * grunt-svg-sprite
  * https://github.com/jkphl/grunt-svg-sprite
  *
- * Copyright (c) 2015 Joschi Kuphal <joschi@kuphal.net>
+ * Copyright (c) 2018 Joschi Kuphal <joschi@kuphal.net>
  * Licensed under the MIT license.
  */
 
