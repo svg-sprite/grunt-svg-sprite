@@ -31,13 +31,14 @@
     "svg-sprite": "~1.4.0"
   },
   "devDependencies": {
+    "grunt": "^1.0.2",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "image-diff": "^2.0.0",
-    "svg2png": "jkphl/svg2png",
     "mkdirp": "^0.5.1",
-    "pn": "^1.1.0"
+    "pn": "^1.1.0",
+    "svg2png": "jkphl/svg2png"
   },
   "keywords": [
     "gruntplugin",
