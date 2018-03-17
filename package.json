@@ -31,6 +31,7 @@
     "svg-sprite": "~1.4.0"
   },
   "devDependencies": {
+    "grunt-cli": "~1.2.0",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-jshint": "^1.1.0",
     "grunt-contrib-nodeunit": "^1.0.0",
