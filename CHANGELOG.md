@@ -1,3 +1,7 @@
+## 1.5.0 Compatibility release (2018-09-18)
+* Updated dependencies
+* Dropped support for Node.js < 6.4
+
 ## 1.4.1 Compatibility release (2018-09-18)
 * Updated dependencies
 
@@ -6,7 +10,6 @@
 * Updated dependencies
 
 ## 1.3.7 Compatibility release (2017-06-01)
-* Compatible with [svg-sprite 1.3.7](https://github.com/jkphl/svg-sprite/tree/v1.3.7)
 * Updated dependencies
 
 ## 1.3.6 Compatibility release (2016-08-29)
