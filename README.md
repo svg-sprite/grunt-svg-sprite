@@ -1,6 +1,6 @@
 # grunt-svg-sprite [![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url] [![Dependency Status][depstat-image]][depstat-url] [![Development Dependency Status][devdepstat-image]][devdepstat-url]
 
-is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
+is a Grunt plugin wrapping around [svg-sprite](https://github.com/svg-sprite/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
 
 *	Traditional [CSS sprites](http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS) for use as background images,
 *	CSS sprites with **pre-defined `<view>` elements**, useful for foreground images as well,
@@ -8,9 +8,9 @@ is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-spri
 *	inline sprites using the **`<symbol>` element**
 *	and [SVG stacks](http://simurai.com/blog/2012/04/02/svg-stacks/).
 
-## Features & configuration? → [svg-sprite](https://github.com/jkphl/svg-sprite)
+## Features & configuration? → [svg-sprite](https://github.com/svg-sprite/svg-sprite)
 
-This document covers only Grunt specific installation and configuration aspects. For a full list of features and options, please see the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
+This document covers only Grunt specific installation and configuration aspects. For a full list of features and options, please see the [svg-sprite manual](https://github.com/svg-sprite/svg-sprite).
 
 ## Getting Started
 
@@ -79,7 +79,7 @@ your_target: {
 
 ### Options
 
-As **target-specific options** you may provide a [main configuration object](https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md) as described in the *svg-sprite* manual. Configuration-wise, *svg-sprite* and *grunt-svg-sprite* differ only in one respect:
+As **target-specific options** you may provide a [main configuration object](https://github.com/svg-sprite/svg-sprite/blob/main/docs/configuration.md) as described in the *svg-sprite* manual. Configuration-wise, *svg-sprite* and *grunt-svg-sprite* differ only in one respect:
 
 #### options.dest → dest
 
@@ -201,12 +201,12 @@ out
 
 For more advanced features like
 
-*	[custom transformation](https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#svg-transformations),
-*	[meta data injection](https://github.com/jkphl/svg-sprite/blob/master/docs/meta-data.md),
-*	[customizing output templates](https://github.com/jkphl/svg-sprite/blob/master/docs/templating.md) or
+*	[custom transformation](https://github.com/svg-sprite/svg-sprite/blob/main/docs/configuration.md#svg-transformations),
+*	[meta data injection](https://github.com/svg-sprite/svg-sprite/blob/main/docs/meta-data.md),
+*	[customizing output templates](https://github.com/svg-sprite/svg-sprite/blob/main/docs/templating.md) or
 *	introducing new output formats
 
-please refer to the [svg-sprite manual](https://github.com/jkphl/svg-sprite).
+please refer to the [svg-sprite manual](https://github.com/svg-sprite/svg-sprite).
 
 
 Contributing
@@ -230,8 +230,8 @@ Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 [npm-image]: https://img.shields.io/npm/v/grunt-svg-sprite
 [npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite.svg
 
-[ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amaster
-[ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/master
+[ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amain
+[ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/main
 
 [depstat-url]: https://david-dm.org/svg-sprite/grunt-svg-sprite
 [depstat-image]: https://img.shields.io/david/svg-sprite/grunt-svg-sprite

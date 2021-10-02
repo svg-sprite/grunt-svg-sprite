@@ -3,11 +3,11 @@
 /**
  * grunt-svg-sprite is a Grunt plugin for creating SVG sprites
  *
- * @see https://github.com/jkphl/grunt-svg-sprite
+ * @see https://github.com/svg-sprite/grunt-svg-sprite
  *
  * @author Joschi Kuphal <joschi@kuphal.net> (https://github.com/jkphl)
  * @copyright © 2018 Joschi Kuphal
- * @license MIT https://raw.github.com/jkphl/grunt-svg-sprite/master/LICENSE.txt
+ * @license MIT https://github.com/svg-sprite/grunt-svg-sprite/blob/main/LICENSE.txt
  */
 
 module.exports = function(grunt) {

@@ -1,6 +1,6 @@
 /*
  * grunt-svg-sprite
- * https://github.com/jkphl/grunt-svg-sprite
+ * https://github.com/svg-sprite/grunt-svg-sprite
  *
  * Copyright (c) 2018 Joschi Kuphal <joschi@kuphal.net>
  * Licensed under the MIT license.
