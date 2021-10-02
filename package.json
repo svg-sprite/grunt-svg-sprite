@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.4"
+    "node": ">=10"
   },
   "files": [
     "tasks",
