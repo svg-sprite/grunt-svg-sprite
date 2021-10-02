@@ -1,12 +1,14 @@
-# grunt-svg-sprite [![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url] [![Dependency Status][depstat-image]][depstat-url] [![Development Dependency Status][devdepstat-image]][devdepstat-url]
+# grunt-svg-sprite
 
-is a Grunt plugin wrapping around [svg-sprite](https://github.com/svg-sprite/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
+[![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url] [![Dependency Status][depstat-image]][depstat-url] [![Development Dependency Status][devdepstat-image]][devdepstat-url]
 
-*	Traditional [CSS sprites](http://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS) for use as background images,
-*	CSS sprites with **pre-defined `<view>` elements**, useful for foreground images as well,
-*	inline sprites using the **`<defs>` element**,
-*	inline sprites using the **`<symbol>` element**
-*	and [SVG stacks](http://simurai.com/blog/2012/04/02/svg-stacks/).
+is a Grunt plugin wrapping around [svg-sprite](https://github.com/svg-sprite/svg-sprite) which **takes a bunch of [SVG](https://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
+
+* Traditional [CSS sprites](https://en.wikipedia.org/wiki/Sprite_(computer_graphics)#Sprites_by_CSS) for use as background images,
+* CSS sprites with **pre-defined `<view>` elements**, useful for foreground images as well,
+* inline sprites using the **`<defs>` element**,
+* inline sprites using the **`<symbol>` element**
+* and [SVG stacks](http://simurai.com/blog/2012/04/02/svg-stacks/).
 
 ## Features & configuration? → [svg-sprite](https://github.com/svg-sprite/svg-sprite)
 
@@ -16,7 +18,7 @@ This document covers only Grunt specific installation and configuration aspects.
 
 This plugin requires Grunt `>=0.4.5`
 
-If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
+If you haven't used [Grunt](https://gruntjs.com/) before, be sure to check out the [Getting Started](https://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](https://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
 npm install grunt-svg-sprite --save-dev
@@ -36,14 +38,14 @@ In your project's Gruntfile, add a section named `svg_sprite` to the data object
 
 ```js
 grunt.initConfig({
-	svg_sprite		: {
-		options		: {
-			// Task-specific options go here.
-		},
-		your_target	: {
-			// Target-specific file lists and/or options go here.
-		},
-	}
+  svg_sprite: {
+    options: {
+      // Task-specific options go here.
+    },
+    your_target: {
+      // Target-specific file lists and/or options go here.
+    },
+  }
 });
 ```
 
@@ -55,11 +57,11 @@ In the simplest case an «svg_sprite» target looks like this:
 
 ```js
 your_target: {
-	src			: ['path/to/assets/**/*.svg'],
-	dest		: 'path/to/css/dir',
-	options		: {
-		// Target-specific options
-	}
+  src: ['path/to/assets/**/*.svg'],
+  dest: 'path/to/css/dir',
+  options: {
+    // Target-specific options
+  }
 },
 ```
 
@@ -67,13 +69,13 @@ However, as the `path/to/assets` would become part of the shape IDs, you will mo
 
 ```js
 your_target: {
-	expand		: true,
-	cwd			: 'path/to/assets',
-	src			: ['**/*.svg'],
-	dest		: 'path/to/css/dir',
-	options		: {
-		// Target-specific options
-	}
+  expand: true,
+  cwd: 'path/to/assets',
+  src: ['**/*.svg'],
+  dest: 'path/to/css/dir',
+  options: {
+    // Target-specific options
+  }
 },
 ```
 
@@ -96,27 +98,27 @@ In this very basic example, mostly default settings will be applied to create a 
 
 ```js
 grunt.initConfig({
-	svg_sprite					: {
-		basic					: {
+  svg_sprite: {
+    basic: {
 
-			// Target basics
-			expand				: true,
-			cwd					: 'assets',
-			src					: ['**/*.svg'],
-			dest				: 'out',
+      // Target basics
+      expand: true,
+      cwd: 'assets',
+      src: ['**/*.svg'],
+      dest: 'out',
 
-			// Target options
-			options				: {
-				mode			: {
-					css			: {		// Activate the «css» mode
-						render	: {
-							css	: true	// Activate CSS output (with default options)
-						}
-					}
-				}
-			}
-		}
-	}
+      // Target options
+      options: {
+        mode: {
+          css: {        // Activate the «css» mode
+            render: {
+              css: true // Activate CSS output (with default options)
+            }
+          }
+        }
+      }
+    }
+  }
 });
 ```
 
@@ -144,39 +146,39 @@ The following example is a little more complex:
 
 ```js
 grunt.initConfig({
-	svg_sprite					: {
-		complex: {
+  svg_sprite: {
+    complex: {
 
-			// Target basics
-			expand					: true,
-			cwd						: 'assets',
-			src						: ['**/*.svg'],
-			dest					: 'out',
+      // Target basics
+      expand: true,
+      cwd: 'assets',
+      src: ['**/*.svg'],
+      dest: 'out',
 
-			// Target options
-			options					: {
-				shape				: {
-					dimension		: {			// Set maximum dimensions
-						maxWidth	: 32,
-						maxHeight	: 32
-					},
-					spacing			: {			// Add padding
-						padding		: 10
-					},
-					dest			: 'out/intermediate-svg'	// Keep the intermediate files
-				},
-				mode				: {
-					view			: {			// Activate the «view» mode
-						bust		: false,
-						render		: {
-							scss	: true		// Activate Sass output (with default options)
-						}
-					},
-					symbol			: true		// Activate the «symbol» mode
-				}
-			}
-		}
-	}
+      // Target options
+      options: {
+        shape: {
+          dimension: {      // Set maximum dimensions
+            maxWidth: 32,
+            maxHeight: 32
+          },
+          spacing: {        // Add padding
+            padding: 10
+          },
+          dest: 'out/intermediate-svg'  // Keep the intermediate files
+        },
+        mode: {
+          view: {           // Activate the «view» mode
+            bust: false,
+            render: {
+              scss: true    // Activate Sass output (with default options)
+            }
+          },
+          symbol: true      // Activate the «symbol» mode
+        }
+      }
+    }
+  }
 });
 ```
 
@@ -201,28 +203,26 @@ out
 
 For more advanced features like
 
-*	[custom transformation](https://github.com/svg-sprite/svg-sprite/blob/main/docs/configuration.md#svg-transformations),
-*	[meta data injection](https://github.com/svg-sprite/svg-sprite/blob/main/docs/meta-data.md),
-*	[customizing output templates](https://github.com/svg-sprite/svg-sprite/blob/main/docs/templating.md) or
-*	introducing new output formats
+* [custom transformation](https://github.com/svg-sprite/svg-sprite/blob/main/docs/configuration.md#svg-transformations),
+* [meta data injection](https://github.com/svg-sprite/svg-sprite/blob/main/docs/meta-data.md),
+* [customizing output templates](https://github.com/svg-sprite/svg-sprite/blob/main/docs/templating.md) or
+* introducing new output formats
 
 please refer to the [svg-sprite manual](https://github.com/svg-sprite/svg-sprite).
 
 
-Contributing
-------------
+## Contributing
 
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](https://gruntjs.com/).
 
 
-Changelog
----------
+## Changelog
 
 Please refer to the [changelog](CHANGELOG.md) for a complete release history.
 
 
-Legal
------
+## Legal
+
 Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl). *grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE). The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
 
 
