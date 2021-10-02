@@ -5,6 +5,10 @@ var svg2png = require('svg2png');
 var path = require('path');
 var imageDiff = require('image-diff');
 var mkdirp = require('mkdirp');
+
+// This is so that we can fix tests on Node.js > 10 since the Array.sort algorithm changed
+var isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
+
 /*
  * ======== A Handy Little Nodeunit Reference ========
  * https://github.com/caolan/nodeunit
@@ -98,7 +102,7 @@ exports.svg_sprite = {
         compareSvg2Png(
             path.join(__dirname, '..', 'tmp', 'svg', 'packed.svg'),
             path.join(__dirname, '..', 'tmp', 'png', 'packed.png'),
-            path.join(__dirname, 'expected', 'packed.png'),
+            path.join(__dirname, 'expected', isNodeGreaterThan10 ? 'packed.12.png' : 'packed.png'),
             path.join(__dirname, '..', 'tmp', 'diff', 'packed.png'),
             test,
             'The packed sprite doesn\'t match the expected one!'
