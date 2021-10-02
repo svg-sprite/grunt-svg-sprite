@@ -5,7 +5,7 @@ const path = require('path');
 const process = require('process');
 const { promisify } = require('util');
 const svg2png = require('svg2png');
-const imageDiff = require('image-diff');
+const looksSame = require('looks-same');
 
 // This is so that we can fix tests on Node.js > 10 since the Array.sort algorithm changed
 const isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
@@ -36,15 +36,17 @@ function compareSvg2Png(svg, png, expected, diff, test, msg) {
         .then(buffer => {
             writeFileP(png, buffer)
                 .then(() => {
-                    imageDiff({
-                        actualImage: png,
-                        expectedImage: expected,
-                        diffImage: diff
-                    }, (err, imagesAreSame) => {
+                    looksSame(png, expected, (err, result) => {
                         test.ifError(err);
-                        test.ok(imagesAreSame, msg);
+                        test.ok(result.equal, msg + JSON.stringify(result.diffClusters) + png);
                         test.done();
                     });
+                    looksSame.createDiff({
+                        reference: expected,
+                        current: png,
+                        diff,
+                        highlightColor: '#ff00ff'
+                    }, () => {});
                 })
                 .catch(ecb);
         })

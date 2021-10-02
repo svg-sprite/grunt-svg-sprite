@@ -35,7 +35,7 @@
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-nodeunit": "^3.0.0",
-    "image-diff": "^2.0.0",
+    "looks-same": "^7.3.0",
     "svg2png": "^4.1.1",
     "xo": "^0.45.0"
   },
