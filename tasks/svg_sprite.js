@@ -12,8 +12,9 @@
 
 const path = require('path');
 const SVGSpriter = require('svg-sprite');
-const pretty = require('prettysize');
 const chalk = require('chalk');
+const figures = require('figures');
+const pretty = require('prettysize');
 
 const rtrim = (str, strip) => {
     while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
@@ -79,14 +80,15 @@ module.exports = function(grunt) {
 
                             const file = result[mode][resource];
                             if (grunt.file.write(file.path, file.contents)) {
-                                grunt.log.writeln(chalk.green('✔ ') + file.relative + chalk.gray(` (${pretty(file.contents.length)})`));
+                                grunt.log.writeln(chalk.green(figures('✔ ')) + file.relative + chalk.gray(` (${pretty(file.contents.length)})`));
                             }
                         }
                     }
 
                     if (errors.length) {
+                        const errSeparator = `\n${figures('✖')} `;
                         console.log();
-                        grunt.fail.warn(`The following errors occured:\n✖ ${errors.join('\n✖ ')}\n`);
+                        grunt.fail.warn(`The following errors occured:${errSeparator}${errors.join(errSeparator)}\n`);
                     }
                 }
 
