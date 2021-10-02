@@ -7,7 +7,7 @@
  *
  * @author Joschi Kuphal <joschi@kuphal.net> (https://github.com/jkphl)
  * @copyright © 2018 Joschi Kuphal
- * @license MIT https://github.com/svg-sprite/grunt-svg-sprite/blob/main/LICENSE.txt
+ * @license MIT https://github.com/svg-sprite/grunt-svg-sprite/blob/main/LICENSE
  */
 
 module.exports = function(grunt) {
