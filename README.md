@@ -1,5 +1,4 @@
-grunt-svg-sprite [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][depstat-image]][depstat-url]  [![Development Dependency Status][devdepstat-image]][devdepstat-url]  [![Peer Dependency Status][peerdepstat-image]][peerdepstat-url]
-==========
+# grunt-svg-sprite [![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url] [![Dependency Status][depstat-image]][depstat-url] [![Development Dependency Status][devdepstat-image]][devdepstat-url]
 
 is a Grunt plugin wrapping around [svg-sprite](https://github.com/jkphl/svg-sprite) which **takes a bunch of [SVG](http://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
 
@@ -228,15 +227,13 @@ Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 
 
 [npm-url]: https://npmjs.org/package/grunt-svg-sprite
-[npm-image]: https://badge.fury.io/js/grunt-svg-sprite.svg
+[npm-image]: https://img.shields.io/npm/v/grunt-svg-sprite
 [npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite.svg
 
-[travis-url]: http://travis-ci.org/jkphl/grunt-svg-sprite
-[travis-image]: https://secure.travis-ci.org/jkphl/grunt-svg-sprite.svg
+[ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amaster
+[ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/master
 
-[depstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite
-[depstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite.svg
-[devdepstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite#info=devDependencies
-[devdepstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite/dev-status.svg
-[peerdepstat-url]: https://david-dm.org/jkphl/grunt-svg-sprite#info=peerDependencies
-[peerdepstat-image]: https://david-dm.org/jkphl/grunt-svg-sprite/peer-status.svg
+[depstat-url]: https://david-dm.org/svg-sprite/grunt-svg-sprite
+[depstat-image]: https://img.shields.io/david/svg-sprite/grunt-svg-sprite
+[devdepstat-url]: https://david-dm.org/svg-sprite/grunt-svg-sprite?type=dev
+[devdepstat-image]: https://img.shields.io/david/dev/svg-sprite/grunt-svg-sprite
