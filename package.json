@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">= 6.4"
+    "node": ">=6.4"
   },
   "files": [
     "tasks",
@@ -26,19 +26,19 @@
     "grunt": ">=1.0.1"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "prettysize": "^1.1.0",
-    "svg-sprite": "^1.5.0"
+    "chalk": "^4.1.2",
+    "prettysize": "^2.0.0",
+    "svg-sprite": "^1.5.3"
   },
   "devDependencies": {
-    "grunt": "^1.0.3",
+    "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-nodeunit": "^2.0.0",
+    "grunt-contrib-jshint": "^3.1.1",
+    "grunt-contrib-nodeunit": "^3.0.0",
     "image-diff": "^2.0.0",
-    "mkdirp": "^0.5.1",
+    "mkdirp": "^0.5.5",
     "pn": "^1.1.0",
-    "svg2png": "github:jkphl/svg2png"
+    "svg2png": "^4.1.1"
   },
   "keywords": [
     "gruntplugin",
