@@ -36,8 +36,6 @@
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-nodeunit": "^3.0.0",
     "image-diff": "^2.0.0",
-    "mkdirp": "^0.5.5",
-    "pn": "^1.1.0",
     "svg2png": "^4.1.1",
     "xo": "^0.45.0"
   },

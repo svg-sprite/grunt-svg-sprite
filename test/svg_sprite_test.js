@@ -1,27 +1,17 @@
 'use strict';
 
+const fs = require('fs');
 const path = require('path');
 const process = require('process');
-const fs = require('pn/fs'); // https://www.npmjs.com/package/pn
+const { promisify } = require('util');
 const svg2png = require('svg2png');
 const imageDiff = require('image-diff');
-const mkdirp = require('mkdirp');
 
 // This is so that we can fix tests on Node.js > 10 since the Array.sort algorithm changed
 const isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
 
-/*
- * ======== A Handy Little Nodeunit Reference ========
- * https://github.com/caolan/nodeunit
- *
- * Test methods: test.expect(numAssertions) test.done() Test assertions:
- * test.ok(value, [message]) test.equal(actual, expected, [message])
- * test.notEqual(actual, expected, [message]) test.deepEqual(actual, expected,
- * [message]) test.notDeepEqual(actual, expected, [message])
- * test.strictEqual(actual, expected, [message]) test.notStrictEqual(actual,
- * expected, [message]) test.throws(block, [error], [message])
- * test.doesNotThrow(block, [error], [message]) test.ifError(value)
- */
+const readFileP = promisify(fs.readFile);
+const writeFileP = promisify(fs.writeFile);
 
 /**
  * Rasterize an SVG file and compare it to an expected image
@@ -34,17 +24,17 @@ const isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
  * @param {String} msg              Message
  */
 function compareSvg2Png(svg, png, expected, diff, test, msg) {
-    mkdirp.sync(path.dirname(png));
+    fs.mkdirSync(path.dirname(png), { recursive: true });
     const ecb = function(err) {
         console.log(err);
         test.ifError(err);
         test.done();
     };
 
-    fs.readFile(svg)
+    readFileP(svg)
         .then(svg2png)
         .then(buffer => {
-            fs.writeFile(png, buffer)
+            writeFileP(png, buffer)
                 .then(() => {
                     imageDiff({
                         actualImage: png,
