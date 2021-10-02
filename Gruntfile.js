@@ -9,7 +9,6 @@
 'use strict';
 
 module.exports = function(grunt) {
-
     // Project configuration.
     grunt.initConfig({
         // Before generating any new files, remove any previously-created files.
@@ -101,5 +100,4 @@ module.exports = function(grunt) {
 
     // By default, lint and run all tests.
     grunt.registerTask('default', ['test']);
-
 };

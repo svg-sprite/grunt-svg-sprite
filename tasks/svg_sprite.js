@@ -10,73 +10,86 @@
  * @license MIT https://github.com/svg-sprite/grunt-svg-sprite/blob/main/LICENSE
  */
 
-module.exports = function(grunt) {
-    var SVGSpriter          = require('svg-sprite'),
-    path                    = require('path'),
-    pretty                  = require('prettysize'),
-    chalk                   = require('chalk');
+const path = require('path');
+const SVGSpriter = require('svg-sprite');
+const pretty = require('prettysize');
+const chalk = require('chalk');
 
+const rtrim = (str, strip) => {
+    while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
+        str = str.substr(0, str.length - strip.length);
+    }
+
+    return str;
+};
+
+module.exports = function(grunt) {
     grunt.registerMultiTask('svg_sprite', 'Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS / Stylus etc. resources out of them', function() {
-        var spriter         = null,
-        config              = null,
-        errors              = [],
-        rtrim               = function(str, strip) {
-            while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
-                str         = str.substr(0, str.length - strip.length);
-            }
-            return str;
-        };
+        let spriter = null;
+        let config = null;
+        const errors = [];
 
         // Iterate over all specified file groups.
-        this.files.forEach(function(f) {
-            config          = config || this.options({dest: path.resolve(f.orig.dest)});
-            var cwd         = rtrim(path.normalize(f.orig.cwd || ''), path.sep),
-            cwdAbs          = path.resolve(cwd || '.'),
-            expand          = !!f.orig.expand;
+        this.files.forEach(f => {
+            config = config || this.options({ dest: path.resolve(f.orig.dest) });
+            const cwd = rtrim(path.normalize(f.orig.cwd || ''), path.sep);
+            const cwdAbs = path.resolve(cwd || '.');
+            const expand = Boolean(f.orig.expand);
 
             if (spriter === null) {
-                spriter     = new SVGSpriter(config);
-                spriter.config.log.on('logging', function (transport, level, msg) {
+                spriter = new SVGSpriter(config);
+                spriter.config.log.on('logging', (transport, level, msg) => {
                     if (level === 'error') {
                         errors.push(msg);
                     }
                 });
             }
 
-            f.src.map(function(file) {
-                file        = path.normalize(file);
+            f.src.map(file => {
+                file = path.normalize(file);
                 return path.resolve(cwdAbs, (expand && cwd.length && (file.indexOf(cwd + path.sep) === 0)) ? file.substr(cwd.length + path.sep.length) : file);
-            }).filter(function(file) {
+            }).filter(file => {
                 if (!grunt.file.exists(file)) {
-                    grunt.log.warn('Source file "' + file + '" not found.');
+                    grunt.log.warn(`Source file "${file}" not found.`);
                     return false;
                 }
+
                 return true;
-            }).forEach(function(file) {
-                this.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
-            }, spriter);
-        }, this);
+            }).forEach(file => {
+                spriter.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
+            });
+        });
 
         if (spriter) {
-            var done        = this.async();
-            spriter.compile(function(error, result) {
+            const done = this.async();
+            spriter.compile((error, result) => {
                 console.log();
                 if (error) {
-                    grunt.fail.warn('SVG sprite compilation failed with message: ' + error, 3);
+                    grunt.fail.warn(`SVG sprite compilation failed with message: ${error}`, 3);
                 } else {
-                    for (var mode in result) {
-                        for (var resource in result[mode]) {
-                            var file        = result[mode][resource];
+                    for (const mode in result) {
+                        if (!Object.prototype.hasOwnProperty.call(result, mode)) {
+                            continue;
+                        }
+
+                        for (const resource in result[mode]) {
+                            if (!Object.prototype.hasOwnProperty.call(result[mode], resource)) {
+                                continue;
+                            }
+
+                            const file = result[mode][resource];
                             if (grunt.file.write(file.path, file.contents)) {
-                                grunt.log.writeln(chalk.green('✔ ') + file.relative + chalk.gray(' (' + pretty(file.contents.length) + ')'));
+                                grunt.log.writeln(chalk.green('✔ ') + file.relative + chalk.gray(` (${pretty(file.contents.length)})`));
                             }
                         }
                     }
+
                     if (errors.length) {
                         console.log();
-                        grunt.fail.warn('The following errors occured:\n✖ ' + errors.join('\n✖ ') + '\n');
+                        grunt.fail.warn(`The following errors occured:\n✖ ${errors.join('\n✖ ')}\n`);
                     }
                 }
+
                 done();
             });
         }

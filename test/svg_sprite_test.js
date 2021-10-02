@@ -1,13 +1,14 @@
 'use strict';
 
-var fs = require('pn/fs'); // https://www.npmjs.com/package/pn
-var svg2png = require('svg2png');
-var path = require('path');
-var imageDiff = require('image-diff');
-var mkdirp = require('mkdirp');
+const path = require('path');
+const process = require('process');
+const fs = require('pn/fs'); // https://www.npmjs.com/package/pn
+const svg2png = require('svg2png');
+const imageDiff = require('image-diff');
+const mkdirp = require('mkdirp');
 
 // This is so that we can fix tests on Node.js > 10 since the Array.sort algorithm changed
-var isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
+const isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
 
 /*
  * ======== A Handy Little Nodeunit Reference ========
@@ -34,21 +35,22 @@ var isNodeGreaterThan10 = process.version.split('.')[0].slice(1) > 10;
  */
 function compareSvg2Png(svg, png, expected, diff, test, msg) {
     mkdirp.sync(path.dirname(png));
-    var ecb = function (err) {
+    const ecb = function(err) {
         console.log(err);
         test.ifError(err);
         test.done();
     };
+
     fs.readFile(svg)
         .then(svg2png)
-        .then(function (buffer) {
+        .then(buffer => {
             fs.writeFile(png, buffer)
-                .then(function () {
+                .then(() => {
                     imageDiff({
                         actualImage: png,
                         expectedImage: expected,
                         diffImage: diff
-                    }, function (err, imagesAreSame) {
+                    }, (err, imagesAreSame) => {
                         test.ifError(err);
                         test.ok(imagesAreSame, msg);
                         test.done();
@@ -60,11 +62,11 @@ function compareSvg2Png(svg, png, expected, diff, test, msg) {
 }
 
 exports.svg_sprite = {
-    setUp: function (done) {
+    setUp(done) {
         // setup here if necessary
         done();
     },
-    vertical: function (test) {
+    vertical(test) {
         test.expect(2);
         compareSvg2Png(
             path.join(__dirname, '..', 'tmp', 'svg', 'vertical.svg'),
@@ -75,7 +77,7 @@ exports.svg_sprite = {
             'The vertical sprite doesn\'t match the expected one!'
         );
     },
-    horizontal: function (test) {
+    horizontal(test) {
         test.expect(2);
         compareSvg2Png(
             path.join(__dirname, '..', 'tmp', 'svg', 'horizontal.svg'),
@@ -86,7 +88,7 @@ exports.svg_sprite = {
             'The horizontal sprite doesn\'t match the expected one!'
         );
     },
-    diagonal: function (test) {
+    diagonal(test) {
         test.expect(2);
         compareSvg2Png(
             path.join(__dirname, '..', 'tmp', 'svg', 'diagonal.svg'),
@@ -97,7 +99,7 @@ exports.svg_sprite = {
             'The diagonal sprite doesn\'t match the expected one!'
         );
     },
-    packed: function (test) {
+    packed(test) {
         test.expect(2);
         compareSvg2Png(
             path.join(__dirname, '..', 'tmp', 'svg', 'packed.svg'),

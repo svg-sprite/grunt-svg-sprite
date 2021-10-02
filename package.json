@@ -73,7 +73,6 @@
         "error",
         "never"
       ],
-      "guard-for-in": "off",
       "no-negated-condition": "off",
       "object-curly-spacing": [
         "error",
