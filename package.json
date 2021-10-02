@@ -16,10 +16,11 @@
     "node": ">=10"
   },
   "files": [
-    "tasks",
-    "CHANGELOG.md"
+    "tasks"
   ],
   "scripts": {
+    "lint": "xo",
+    "fix": "xo --fix",
     "test": "grunt test"
   },
   "peerDependencies": {
@@ -33,12 +34,12 @@
   "devDependencies": {
     "grunt": "^1.0.4",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^3.1.1",
     "grunt-contrib-nodeunit": "^3.0.0",
     "image-diff": "^2.0.0",
     "mkdirp": "^0.5.5",
     "pn": "^1.1.0",
-    "svg2png": "^4.1.1"
+    "svg2png": "^4.1.1",
+    "xo": "^0.45.0"
   },
   "keywords": [
     "gruntplugin",
@@ -61,5 +62,41 @@
     "rwd",
     "retina",
     "mustache"
-  ]
+  ],
+  "xo": {
+    "space": 4,
+    "rules": {
+      "arrow-body-style": "off",
+      "capitalized-comments": "off",
+      "camelcase": "off",
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "guard-for-in": "off",
+      "no-negated-condition": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "operator-linebreak": [
+        "error",
+        "after"
+      ],
+      "promise/prefer-await-to-then": "off",
+      "prefer-template": "error",
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "spaced-comment": "off",
+      "unicorn/explicit-length-check": "off",
+      "unicorn/filename-case": "off",
+      "unicorn/no-array-for-each": "off",
+      "unicorn/no-array-method-this-argument": "off",
+      "unicorn/prefer-module": "off",
+      "unicorn/prefer-string-slice": "off",
+      "unicorn/prevent-abbreviations": "off"
+    }
+  }
 }
