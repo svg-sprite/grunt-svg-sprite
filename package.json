@@ -21,7 +21,8 @@
   "scripts": {
     "lint": "xo",
     "fix": "xo --fix",
-    "test": "grunt test"
+    "mocha": "_mocha --timeout 5000",
+    "test": "grunt test && npm run mocha"
   },
   "peerDependencies": {
     "grunt": ">=1.0.1"
@@ -35,8 +36,8 @@
   "devDependencies": {
     "grunt": "^1.4.1",
     "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-nodeunit": "^4.0.0",
     "looks-same": "^7.3.0",
+    "mocha": "^9.1.2",
     "svg2png": "^4.1.1",
     "xo": "^0.45.0"
   },
@@ -62,6 +63,13 @@
     "retina",
     "mustache"
   ],
+  "mocha": {
+    "check-leaks": true,
+    "throw-deprecation": true,
+    "trace-deprecation": true,
+    "trace-warnings": true,
+    "use_strict": true
+  },
   "xo": {
     "space": 4,
     "rules": {
@@ -95,6 +103,14 @@
       "unicorn/prefer-module": "off",
       "unicorn/prefer-string-slice": "off",
       "unicorn/prevent-abbreviations": "off"
-    }
+    },
+    "overrides": [
+      {
+        "files": "test/**/*.js",
+        "envs": [
+          "mocha"
+        ]
+      }
+    ]
   }
 }
