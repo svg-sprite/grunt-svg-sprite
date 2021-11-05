@@ -1,6 +1,4 @@
-'use strict';
-
-/**
+/**!
  * grunt-svg-sprite is a Grunt plugin for creating SVG sprites
  *
  * @see https://github.com/svg-sprite/grunt-svg-sprite
@@ -9,6 +7,8 @@
  * @copyright © 2018 Joschi Kuphal
  * @license MIT https://github.com/svg-sprite/grunt-svg-sprite/blob/main/LICENSE
  */
+
+'use strict';
 
 const path = require('path');
 const SVGSpriter = require('svg-sprite');
@@ -25,17 +25,18 @@ const rtrim = (str, strip) => {
 };
 
 module.exports = function(grunt) {
-    grunt.registerMultiTask('svg_sprite', 'Takes a folder of SVG images and creates an SVG sprite along with suitable CSS / Sass / LESS / Stylus etc. resources out of them', function() {
+    grunt.registerMultiTask('svg_sprite', 'Takes a folder of SVG images and creates an SVG sprite along with suitable CSS/Sass/LESS/Stylus resources out of them', function() {
+        const done = this.async();
         let spriter = null;
         let config = null;
         const errors = [];
 
         // Iterate over all specified file groups.
-        this.files.forEach(f => {
-            config = config || this.options({ dest: path.resolve(f.orig.dest) });
-            const cwd = rtrim(path.normalize(f.orig.cwd || ''), path.sep);
+        for (const srcFile of this.files) {
+            config = config || this.options({ dest: path.resolve(srcFile.orig.dest) });
+            const cwd = rtrim(path.normalize(srcFile.orig.cwd || ''), path.sep);
             const cwdAbs = path.resolve(cwd || '.');
-            const expand = Boolean(f.orig.expand);
+            const expand = Boolean(srcFile.orig.expand);
 
             if (spriter === null) {
                 spriter = new SVGSpriter(config);
@@ -46,9 +47,10 @@ module.exports = function(grunt) {
                 });
             }
 
-            f.src.map(file => {
+            const files = srcFile.src.map(file => {
                 file = path.normalize(file);
-                return path.resolve(cwdAbs, (expand && cwd.length && (file.indexOf(cwd + path.sep) === 0)) ? file.substr(cwd.length + path.sep.length) : file);
+                // The next line is probably too verbose and could be replaced with `path.basename`
+                return path.resolve(cwdAbs, expand && cwd.length && file.startsWith(cwd + path.sep) ? file.substr(cwd.length + path.sep.length) : file);
             }).filter(file => {
                 if (!grunt.file.exists(file)) {
                     grunt.log.warn(`Source file "${file}" not found.`);
@@ -56,44 +58,42 @@ module.exports = function(grunt) {
                 }
 
                 return true;
-            }).forEach(file => {
-                spriter.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
             });
-        });
 
-        if (spriter) {
-            const done = this.async();
-            spriter.compile((error, result) => {
-                console.log();
-                if (error) {
-                    grunt.fail.warn(`SVG sprite compilation failed with message: ${error}`, 3);
-                } else {
-                    for (const mode in result) {
-                        if (!Object.prototype.hasOwnProperty.call(result, mode)) {
+            for (const file of files) {
+                spriter.add(file, path.relative(cwdAbs, file), grunt.file.read(file));
+            }
+        }
+
+        spriter.compile((error, result) => {
+            if (error) {
+                grunt.fail.warn(`\nSVG sprite compilation failed with message: ${error}`, 3);
+            } else {
+                console.log('');
+                for (const mode in result) {
+                    if (!Object.prototype.hasOwnProperty.call(result, mode)) {
+                        continue;
+                    }
+
+                    for (const resource in result[mode]) {
+                        if (!Object.prototype.hasOwnProperty.call(result[mode], resource)) {
                             continue;
                         }
 
-                        for (const resource in result[mode]) {
-                            if (!Object.prototype.hasOwnProperty.call(result[mode], resource)) {
-                                continue;
-                            }
-
-                            const file = result[mode][resource];
-                            if (grunt.file.write(file.path, file.contents)) {
-                                grunt.log.writeln(chalk.green(figures('✔ ')) + file.relative + chalk.gray(` (${pretty(file.contents.length)})`));
-                            }
+                        const file = result[mode][resource];
+                        if (grunt.file.write(file.path, file.contents)) {
+                            grunt.log.writeln(`${chalk.green(figures('✔'))} ${file.relative} ${chalk.gray(`(${pretty(file.contents.length)})`)}`);
                         }
-                    }
-
-                    if (errors.length) {
-                        const errSeparator = `\n${figures('✖')} `;
-                        console.log();
-                        grunt.fail.warn(`The following errors occured:${errSeparator}${errors.join(errSeparator)}\n`);
                     }
                 }
 
-                done();
-            });
-        }
+                if (errors.length) {
+                    const errSeparator = `\n${figures('✖')} `;
+                    grunt.fail.warn(`\nThe following errors occured:${errSeparator}${errors.join(errSeparator)}\n`);
+                }
+            }
+
+            done();
+        });
     });
 };
