@@ -1,6 +1,6 @@
 # grunt-svg-sprite
 
-[![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url] [![Dependency Status][depstat-image]][depstat-url] [![Development Dependency Status][devdepstat-image]][devdepstat-url]
+[![npm version][npm-image]][npm-url] [![npm downloads][npm-downloads]][npm-url] [![Build Status][ci-image]][ci-url]
 
 is a Grunt plugin wrapping around [svg-sprite](https://github.com/svg-sprite/svg-sprite) which **takes a bunch of [SVG](https://www.w3.org/TR/SVG/) files**, optimizes them and bakes them into **SVG sprites** of several types:
 
@@ -232,8 +232,3 @@ Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 
 [ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amain
 [ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/main
-
-[depstat-url]: https://david-dm.org/svg-sprite/grunt-svg-sprite
-[depstat-image]: https://img.shields.io/david/svg-sprite/grunt-svg-sprite
-[devdepstat-url]: https://david-dm.org/svg-sprite/grunt-svg-sprite?type=dev
-[devdepstat-image]: https://img.shields.io/david/dev/svg-sprite/grunt-svg-sprite
