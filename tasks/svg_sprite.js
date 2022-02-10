@@ -12,7 +12,7 @@
 
 const path = require('path');
 const SVGSpriter = require('svg-sprite');
-const chalk = require('chalk');
+const picocolors = require('picocolors');
 const figures = require('figures');
 const pretty = require('prettysize');
 
@@ -82,7 +82,7 @@ module.exports = function(grunt) {
 
                         const file = result[mode][resource];
                         if (grunt.file.write(file.path, file.contents)) {
-                            grunt.log.writeln(`${chalk.green(figures('✔'))} ${file.relative} ${chalk.gray(`(${pretty(file.contents.length)})`)}`);
+                            grunt.log.writeln(`${picocolors.green(figures('✔'))} ${file.relative} ${picocolors.gray(`(${pretty(file.contents.length)})`)}`);
                         }
                     }
                 }
