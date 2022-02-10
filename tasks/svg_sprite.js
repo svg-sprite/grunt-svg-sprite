@@ -70,17 +70,8 @@ module.exports = function(grunt) {
                 grunt.fail.warn(`\nSVG sprite compilation failed with message: ${error}`, 3);
             } else {
                 console.log('');
-                for (const mode in result) {
-                    if (!Object.prototype.hasOwnProperty.call(result, mode)) {
-                        continue;
-                    }
-
-                    for (const resource in result[mode]) {
-                        if (!Object.prototype.hasOwnProperty.call(result[mode], resource)) {
-                            continue;
-                        }
-
-                        const file = result[mode][resource];
+                for (const mode of Object.values(result)) {
+                    for (const file of Object.values(mode)) {
                         if (grunt.file.write(file.path, file.contents)) {
                             grunt.log.writeln(`${picocolors.green(figures('✔'))} ${file.relative} ${picocolors.gray(`(${pretty(file.contents.length)})`)}`);
                         }
