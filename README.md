@@ -20,7 +20,7 @@ This plugin requires Grunt `>=0.4.5`
 
 If you haven't used [Grunt](https://gruntjs.com/) before, be sure to check out the [Getting Started](https://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](https://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
-```shell
+```sh
 npm install grunt-svg-sprite --save-dev
 ```
 
@@ -100,17 +100,15 @@ In this very basic example, mostly default settings will be applied to create a 
 grunt.initConfig({
   svg_sprite: {
     basic: {
-
       // Target basics
       expand: true,
       cwd: 'assets',
       src: ['**/*.svg'],
       dest: 'out',
-
       // Target options
       options: {
         mode: {
-          css: {        // Activate the «css» mode
+          css: { // Activate the «css» mode
             render: {
               css: true // Activate CSS output (with default options)
             }
@@ -124,12 +122,12 @@ grunt.initConfig({
 
 The following files and directories are created:
 
-```
-out
-`-- css
-    |-- sprite.css
-    `-- svg
-        `-- sprite.css-495d2010.svg
+```text
+out/
+├─ css/
+│  ├─ sprite.css
+│  ├─ svg/
+│  │  ├─ sprite.css-495d2010.svg
 ```
 
 > The cryptical looking part in the SVG's file name is the result of *svg-sprite*'s cache busting feature which is enabled by default for CSS sprites. We'll turn this off in the next example.
@@ -148,13 +146,11 @@ The following example is a little more complex:
 grunt.initConfig({
   svg_sprite: {
     complex: {
-
       // Target basics
       expand: true,
       cwd: 'assets',
       src: ['**/*.svg'],
       dest: 'out',
-
       // Target options
       options: {
         shape: {
@@ -184,19 +180,19 @@ grunt.initConfig({
 
 The following files and directories are created:
 
-```
-out
-|-- intermediate-svg
-|   |-- weather-clear.svg
-|   |-- weather-snow.svg
-|   `-- weather-storm.svg
-|-- symbol
-|   `-- svg
-|       `-- sprite.symbol.svg
-`-- view
-    |-- sprite.scss
-    `-- svg
-        `-- sprite.view.svg
+```text
+out/
+├─ intermediate-svg
+│  ├─ weather-clear.svg
+│  ├─ weather-snow.svg
+│  ├─ weather-storm.svg
+├─ symbol/
+│  ├─ svg/
+│     ├─ sprite.symbol.svg
+├─ view/
+│  ├─ sprite.scss
+│  ├─ svg/
+│     ├─ sprite.view.svg
 ```
 
 #### Advanced features
@@ -226,9 +222,9 @@ Please refer to the [changelog](CHANGELOG.md) for a complete release history.
 Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.com/jkphl). *grunt-svg-sprite* is licensed under the terms of the [MIT license](LICENSE). The contained example SVG icons are part of the [Tango Icon Library](http://tango.freedesktop.org/Tango_Icon_Library) and belong to the Public Domain.
 
 
-[npm-url]: https://npmjs.org/package/grunt-svg-sprite
+[npm-url]: https://www.npmjs.com/package/grunt-svg-sprite
 [npm-image]: https://img.shields.io/npm/v/grunt-svg-sprite
 [npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite.svg
 
 [ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amain
-[ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/main
+[ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/main?label=CI&logo=github
