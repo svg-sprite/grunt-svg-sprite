@@ -73,13 +73,13 @@ module.exports = function(grunt) {
                 for (const mode of Object.values(result)) {
                     for (const file of Object.values(mode)) {
                         if (grunt.file.write(file.path, file.contents)) {
-                            grunt.log.writeln(`${picocolors.green(figures('✔'))} ${file.relative} ${picocolors.gray(`(${pretty(file.contents.length)})`)}`);
+                            grunt.log.writeln(`${picocolors.green(figures.tick)} ${file.relative} ${picocolors.gray(`(${pretty(file.contents.length)})`)}`);
                         }
                     }
                 }
 
                 if (errors.length) {
-                    const errSeparator = `\n${figures('✖')} `;
+                    const errSeparator = `\n${figures.cross} `;
                     grunt.fail.warn(`\nThe following errors occured:${errSeparator}${errors.join(errSeparator)}\n`);
                 }
             }
