@@ -214,7 +214,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Changelog
 
-Please refer to the [changelog](CHANGELOG.md) for a complete release history.
+Please refer to the [GitHub releases](https://github.com/svg-sprite/grunt-svg-sprite/releases) for a complete release history.
 
 
 ## Legal
@@ -224,7 +224,7 @@ Copyright © 2018 Joschi Kuphal <joschi@kuphal.net> / [@jkphl](https://twitter.c
 
 [npm-url]: https://www.npmjs.com/package/grunt-svg-sprite
 [npm-image]: https://img.shields.io/npm/v/grunt-svg-sprite
-[npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite.svg
+[npm-downloads]: https://img.shields.io/npm/dm/grunt-svg-sprite
 
 [ci-url]: https://github.com/svg-sprite/grunt-svg-sprite/actions?query=workflow%3ATests+branch%3Amain
 [ci-image]: https://img.shields.io/github/workflow/status/svg-sprite/grunt-svg-sprite/Tests/main?label=CI&logo=github
