@@ -31,7 +31,7 @@
     "figures": "^3.2.0",
     "picocolors": "^1.0.0",
     "prettysize": "^2.0.0",
-    "svg-sprite": "^1.5.4"
+    "svg-sprite": "^2.0.0"
   },
   "devDependencies": {
     "grunt": "^1.5.3",
