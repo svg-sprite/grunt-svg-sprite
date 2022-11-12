@@ -31,7 +31,7 @@
     "figures": "^3.2.0",
     "picocolors": "^1.0.0",
     "prettysize": "^2.0.0",
-    "svg-sprite": "^2.0.0"
+    "svg-sprite": "^2.0.2"
   },
   "devDependencies": {
     "grunt": "^1.5.3",
@@ -39,7 +39,7 @@
     "looks-same": "^7.3.0",
     "mocha": "^9.2.2",
     "svg2png": "^4.1.1",
-    "xo": "^0.50.0"
+    "xo": "^0.52.4"
   },
   "keywords": [
     "gruntplugin",
