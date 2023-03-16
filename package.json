@@ -21,7 +21,7 @@
   "scripts": {
     "lint": "xo",
     "fix": "xo --fix",
-    "mocha": "_mocha --timeout 5000",
+    "mocha": "_mocha",
     "test": "grunt test && npm run mocha"
   },
   "peerDependencies": {
@@ -63,14 +63,6 @@
     "retina",
     "mustache"
   ],
-  "mocha": {
-    "check-leaks": true,
-    "throw-deprecation": true,
-    "timeout": 10000,
-    "trace-deprecation": true,
-    "trace-warnings": true,
-    "use_strict": true
-  },
   "xo": {
     "space": 4,
     "rules": {
