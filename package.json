@@ -66,6 +66,7 @@
   "mocha": {
     "check-leaks": true,
     "throw-deprecation": true,
+    "timeout": 10000,
     "trace-deprecation": true,
     "trace-warnings": true,
     "use_strict": true
