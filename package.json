@@ -37,7 +37,7 @@
     "grunt": "^1.5.3",
     "grunt-contrib-clean": "^2.0.1",
     "looks-same": "^7.3.0",
-    "mocha": "^9.2.2",
+    "mocha": "^10.2.0",
     "svg2png": "^4.1.1",
     "xo": "^0.52.4"
   },
