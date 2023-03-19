@@ -17,7 +17,7 @@ const figures = require('figures');
 const pretty = require('prettysize');
 
 const rtrim = (str, strip) => {
-    while (str.length && strip.length && (str.substr(-strip.length) === strip)) {
+    while (str.length > 0 && strip.length > 0 && (str.substr(-strip.length) === strip)) {
         str = str.substr(0, str.length - strip.length);
     }
 
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
             const files = srcFile.src.map(file => {
                 file = path.normalize(file);
                 // The next line is probably too verbose and could be replaced with `path.basename`
-                return path.resolve(cwdAbs, expand && cwd.length && file.startsWith(cwd + path.sep) ? file.substr(cwd.length + path.sep.length) : file);
+                return path.resolve(cwdAbs, expand && cwd.length > 0 && file.startsWith(cwd + path.sep) ? file.substr(cwd.length + path.sep.length) : file);
             }).filter(file => {
                 if (!grunt.file.exists(file)) {
                     grunt.log.warn(`Source file "${file}" not found.`);
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                     }
                 }
 
-                if (errors.length) {
+                if (errors.length > 0) {
                     const errSeparator = `\n${figures.cross} `;
                     grunt.fail.warn(`\nThe following errors occured:${errSeparator}${errors.join(errSeparator)}\n`);
                 }
