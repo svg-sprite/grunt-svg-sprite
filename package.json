@@ -39,7 +39,7 @@
     "looks-same": "^7.3.0",
     "mocha": "^10.2.0",
     "svg2png": "^4.1.1",
-    "xo": "^0.52.4"
+    "xo": "^0.54.1"
   },
   "keywords": [
     "gruntplugin",
