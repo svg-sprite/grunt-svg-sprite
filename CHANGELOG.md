@@ -15,7 +15,7 @@
 ## 1.3.6 Compatibility release (2016-08-29)
 * Compatible with [svg-sprite 1.3.6](https://github.com/svg-sprite/svg-sprite/tree/v1.3.6)
 * Fixed LESS template mixin call ([svg-sprite #187](https://github.com/svg-sprite/svg-sprite/pull/187))
-* Fixed broken keyframe animation support ([gulp-svg-sprite #63](https://github.com/jkphl/gulp-svg-sprite/issues/63))
+* Fixed broken keyframe animation support ([gulp-svg-sprite #63](https://github.com/svg-sprite/gulp-svg-sprite/issues/63))
 
 ## 1.3.5 Compatibility release (2016-08-15)
 * Compatible with [svg-sprite 1.3.5](https://github.com/svg-sprite/svg-sprite/tree/v1.3.5)
@@ -34,8 +34,8 @@
 
 ## 1.3.1 Bugfix release (2015-12-17)
 * Compatible with [svg-sprite 1.3.1](https://github.com/svg-sprite/svg-sprite/tree/v1.3.1)
-* Fixed modeless run ([svg-sprite #158](https://github.com/svg-sprite/svg-sprite/issues/158), [gulp-svg-sprite #42](https://github.com/jkphl/gulp-svg-sprite/issues/42))
-* Fixed broken shape dimension attribute removal in symbol mode ([gulp-svg-sprite #51](https://github.com/jkphl/gulp-svg-sprite/issues/51))
+* Fixed modeless run ([svg-sprite #158](https://github.com/svg-sprite/svg-sprite/issues/158), [gulp-svg-sprite #42](https://github.com/svg-sprite/gulp-svg-sprite/issues/42))
+* Fixed broken shape dimension attribute removal in symbol mode ([gulp-svg-sprite #51](https://github.com/svg-sprite/gulp-svg-sprite/issues/51))
 
 ## 1.3.0 Major maintenance release (2016-05-16)
 * Compatible with [svg-sprite 1.3.0](https://github.com/svg-sprite/svg-sprite/tree/v1.3.0)
@@ -75,7 +75,7 @@
 * Compatible with [svg-sprite 1.2.14](https://github.com/svg-sprite/svg-sprite/tree/v1.2.14)
 * Updated dependencies & test fixtures
 * Added Node.js versions 4 & 5 to Travis tests
-* Fixed broken svg4everybody links ([svg-sprite #122](https://github.com/svg-sprite/svg-sprite/issues/122), [gulp-svg-sprite #39](https://github.com/jkphl/gulp-svg-sprite/issues/39))
+* Fixed broken svg4everybody links ([svg-sprite #122](https://github.com/svg-sprite/svg-sprite/issues/122), [gulp-svg-sprite #39](https://github.com/svg-sprite/gulp-svg-sprite/issues/39))
 
 ## 1.2.13 Maintenance release (2015-11-06)
 * Compatible with [svg-sprite 1.2.13](https://github.com/svg-sprite/svg-sprite/tree/v1.2.13)
@@ -120,7 +120,7 @@
 
 ## 1.2.4 Maintenance release (2015-06-17)
 * Compatible with [svg-sprite 1.2.4](https://github.com/svg-sprite/svg-sprite/tree/v1.2.4)
-* Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) ([gulp-svg-sprite #25](https://github.com/jkphl/gulp-svg-sprite/issues/25))
+* Made Grunt a regular dependency in [preparation for npm@3](http://blog.npmjs.org/post/110924823920/npm-weekly-5) ([gulp-svg-sprite #25](https://github.com/svg-sprite/gulp-svg-sprite/issues/25))
 
 ## 1.2.3 Bugfix release (2015-06-08)
 * Compatible with [svg-sprite 1.2.3](https://github.com/svg-sprite/svg-sprite/tree/v1.2.3)
@@ -198,7 +198,7 @@
 
 ## v1.0.13 Maintenance (2015-01-28)
 * Compatible with [svg-sprite 1.0.13](https://github.com/svg-sprite/svg-sprite/tree/v1.0.13)
-* Fixed windows path separator bug ([gulp-svg-sprite #6](https://github.com/jkphl/gulp-svg-sprite/issues/6))
+* Fixed windows path separator bug ([gulp-svg-sprite #6](https://github.com/svg-sprite/gulp-svg-sprite/issues/6))
 * Made dimension attributes (width & height) optional ([svg-sprite #45](https://github.com/svg-sprite/svg-sprite/issues/45))
 * Added cache busting option for non-CSS sprites ([svg-sprite #48](https://github.com/svg-sprite/svg-sprite/issues/48))
 
@@ -240,7 +240,7 @@
 
 ## v1.0.5 Bufix release
 * Compatible with [svg-sprite 1.0.5](https://github.com/svg-sprite/svg-sprite/tree/v1.0.5)
-* Fixed XML & doctype declaration bug with inline sprites ([gulp-svg-sprite #2](https://github.com/jkphl/gulp-svg-sprite/issues/2))
+* Fixed XML & doctype declaration bug with inline sprites ([gulp-svg-sprite #2](https://github.com/svg-sprite/gulp-svg-sprite/issues/2))
 * Added support for ID generator templates ([svg-sprite #37](https://github.com/svg-sprite/svg-sprite/issues/37))
 
 ## v1.0.1
