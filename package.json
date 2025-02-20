@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "files": [
     "tasks"
@@ -29,17 +29,17 @@
   },
   "dependencies": {
     "figures": "^3.2.0",
-    "picocolors": "^1.0.0",
+    "picocolors": "^1.1.1",
     "prettysize": "^2.0.0",
-    "svg-sprite": "^2.0.3"
+    "svg-sprite": "^3.0.0-rc3"
   },
   "devDependencies": {
     "grunt": "^1.6.1",
     "grunt-contrib-clean": "^2.0.1",
     "looks-same": "^7.3.0",
-    "mocha": "^10.3.0",
+    "mocha": "^11.1.0",
     "svg2png": "^4.1.1",
-    "xo": "^0.52.4"
+    "xo": "^0.60.0"
   },
   "keywords": [
     "gruntplugin",
@@ -64,11 +64,16 @@
     "mustache"
   ],
   "xo": {
-    "space": 4,
+    "space": true,
     "rules": {
       "arrow-body-style": "off",
       "capitalized-comments": "off",
-      "camelcase": "off",
+      "camelcase": [
+        "error",
+        {
+          "properties": "never"
+        }
+      ],
       "comma-dangle": [
         "error",
         "never"
@@ -82,19 +87,24 @@
         "after"
       ],
       "prefer-template": "error",
+      "promise/prefer-await-to-then": "off",
       "space-before-function-paren": [
         "error",
         "never"
       ],
       "spaced-comment": "off",
       "unicorn/filename-case": "off",
+      "unicorn/no-anonymous-default-export": "off",
+      "unicorn/no-negated-condition": "off",
       "unicorn/prefer-module": "off",
       "unicorn/prefer-string-slice": "off",
       "unicorn/prevent-abbreviations": "off"
     },
     "overrides": [
       {
-        "files": "test/**/*.js",
+        "files": [
+          "test/**/*.js"
+        ],
         "envs": [
           "mocha"
         ]
